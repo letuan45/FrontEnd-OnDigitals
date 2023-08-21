@@ -1,0 +1,48 @@
+import React, { useState } from "react";
+import Logo from "@/components/ui/Logo/Logo";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLanguage, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import classes from "./Header.module.scss";
+import BottomNavigator from "../BottomNavigator/BottomNavigator";
+
+const Header = () => {
+  const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
+  const menuButtonClasses = `${classes["header-menu-btn"]} ${
+    mobileMenuIsOpen ? classes["active"] : ""
+  }`;
+
+  const toggleMenuButtonHandler = () => {
+    setMobileMenuIsOpen(oldState => !oldState);
+  }
+
+  return (
+    <header className={classes["main-header"]}>
+      <div className="container--big">
+        <div className={classes["header-wrapper"]}>
+          <Logo />
+          <div className={classes["header-wrapper-fn"]}>
+            <button className={classes["header-btn"]}>
+              <FontAwesomeIcon icon={faLanguage} />
+              <span>English</span>
+            </button>
+            <button className={classes["header-btn"]}>
+              <FontAwesomeIcon icon={faPaperPlane} />
+              <span>Request Credential</span>
+            </button>
+            <button
+              className={menuButtonClasses}
+              onClick={toggleMenuButtonHandler}
+            >
+              <div className={classes.line}></div>
+              <div className={classes.line}></div>
+              <div className={classes.line}></div>
+            </button>
+          </div>
+        </div>
+        <BottomNavigator />
+      </div>
+    </header>
+  );
+};
+
+export default Header;

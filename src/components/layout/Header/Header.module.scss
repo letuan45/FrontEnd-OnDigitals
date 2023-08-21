@@ -1,0 +1,60 @@
+@import "../../../styles/variables";
+
+.main-header {
+  padding-top: $header-padding;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.header {
+  &-wrapper {
+    display: flex;
+    justify-content: space-between;
+    &-fn {
+      display: flex;
+      align-self: center;
+    }
+  }
+  &-btn {
+    color: white;
+    margin: 0 20px;
+    margin-right: 44px;
+    cursor: pointer;
+    svg {
+      margin-right: 12px;
+    }
+    span,
+    svg {
+      font-size: 28px;
+    }
+  }
+  &-menu-btn {
+    cursor: pointer;
+    .line:nth-child(1) {
+      transform-origin: left top;
+    }
+
+    .line:nth-child(3) {
+      transform-origin: left bottom;
+    }
+    &.active {
+      .line:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      .line:nth-child(2) {
+        width: 0;
+      }
+      .line:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    }
+    .line {
+      margin: 8px 0;
+      width: 36px;
+      height: 4px;
+      border-radius: 20px;
+      background-color: white;
+      transition: all 0.5s ease;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.bottom-nav {
+    position: fixed;
+    bottom: 52.5px;
+    width: 100%;
+    left: 0;
+    &-item {
+        font-size: 28px;
+        color: white;
+    }
+}
