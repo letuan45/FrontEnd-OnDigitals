@@ -36,6 +36,7 @@ const CaseStudyItem = ({ item }) => {
               alt="case-study-image"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
+            sửa
           </div>
         </div>
         <div className={classes["item-description"]}>
