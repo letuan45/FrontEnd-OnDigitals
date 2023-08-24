@@ -8,7 +8,7 @@ const BottomNavigator = () => {
       <div className="container--big">
         <Link href="#" className={classes["bottom-nav-item"]}>
           CONTACT US
-        </Link>
+        </Link> 
       </div>
     </div>
   );
