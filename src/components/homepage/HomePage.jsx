@@ -7,12 +7,11 @@ import ContactSection from './components/ContactSection/ContactSection';
 const HomePage = (allPosts) => {
   return (
     <>
-      {/* <IntroSection /> */}
+      <IntroSection />
       <PartnerSection/>
       <NewAndInsightsSection data={allPosts}/>
       <ContactSection/>
     </>
   );
 }
-
 export default HomePage
