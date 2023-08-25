@@ -48,22 +48,46 @@ body {
   outline: none;
 }
 
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.relative {
+  position: relative;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .container--big {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
   box-sizing: border-box;
 
-  @media (min-width: 640px) {
-    max-width: 640px;
+  @media (min-width: 280px) {
+    width: 100%;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     max-width: 768px;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     max-width: 1024px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 1280px;
+  }
+
+  @media (max-width: 1280px) {
+    padding: 0 30px;
   }
 
   @media (min-width: 1280px) {
@@ -153,3 +177,4 @@ body {
   }
 }
 /* end NewAndInsightsSection homepage */
+

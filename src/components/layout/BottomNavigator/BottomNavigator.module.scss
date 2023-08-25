@@ -1,10 +1,14 @@
+@import "../../../styles/functions";
+@import "../../../styles/variables";
+
 .bottom-nav {
-    position: fixed;
-    bottom: 52.5px;
-    width: 100%;
-    left: 0;
-    &-item {
-        font-size: 28px;
-        color: white;
-    }
+  position: fixed;
+  bottom: $header-padding;
+  width: 100%;
+  left: 0;
+  &-item {
+    font-size: 28px;
+    line-height: 36px;
+    color: white;
+  }
 }

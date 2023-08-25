@@ -1,14 +1,16 @@
 import Image from "next/image";
+import classes from "./Logo.module.scss";
 
 const Logo = () => {
   return (
-    <div>
+    <div className={classes["logo-container"]}>
       <Image
         src="/assets/images/ui/Logo.png"
-        width={78.64}
-        height={79.03}
+        fill
         alt="logo"
-        priority={true}
+        placeholder="blur"
+        blurDataURL={"/assets/images/ui/Logo.png"}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
     </div>
   );

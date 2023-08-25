@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLanguage, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import classes from "./Header.module.scss";
 import BottomNavigator from "../BottomNavigator/BottomNavigator";
+import Link from "next/link";
 
 const Header = () => {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
@@ -12,8 +13,8 @@ const Header = () => {
   }`;
 
   const toggleMenuButtonHandler = () => {
-    setMobileMenuIsOpen(oldState => !oldState);
-  }
+    setMobileMenuIsOpen((oldState) => !oldState);
+  };
 
   return (
     <header className={classes["main-header"]}>
@@ -21,14 +22,39 @@ const Header = () => {
         <div className={classes["header-wrapper"]}>
           <Logo />
           <div className={classes["header-wrapper-fn"]}>
-            <button className={classes["header-btn"]}>
-              <FontAwesomeIcon icon={faLanguage} />
-              <span>English</span>
-            </button>
-            <button className={classes["header-btn"]}>
-              <FontAwesomeIcon icon={faPaperPlane} />
-              <span>Request Credential</span>
-            </button>
+            <Link href="#" className={classes["header-btn"]}>
+              <div className={classes["header-btn__wrapper"]}>
+                <FontAwesomeIcon icon={faLanguage} />
+                <span>English</span>
+              </div>
+            </Link>
+            <Link href="#" className={classes["header-btn"]}>
+              <div className={classes["header-btn__wrapper"]}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M22 2L11 13"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M22 2L15 22L11 13L2 9L22 2Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span>Request Credential</span>
+              </div>
+            </Link>
             <button
               className={menuButtonClasses}
               onClick={toggleMenuButtonHandler}

@@ -2,9 +2,9 @@
 @import "../../../styles/functions";
 
 .main-header {
-  padding-top: $header-padding;
+  z-index: $header-index;
   position: fixed;
-  top: 0;
+  top: $header-padding;
   width: 100%;
 }
 .header {
@@ -13,24 +13,36 @@
     justify-content: space-between;
     &-fn {
       display: flex;
-      align-self: center;
+      align-items: center;
     }
   }
   &-btn {
     color: white;
-    margin: 0 20px;
-    margin-right: 44px;
+    margin-right: 20px;
+    font-size: 18px;
     cursor: pointer;
-    svg {
-      margin-right: 12px;
-    }
-    span,
-    svg {
-      font-size: 28px;
+    &__wrapper {
+      display: flex;
+      align-items: center;
+      svg {
+        display: block;
+        margin-right: 10px;
+        font-size: 24px;
+      }
+      span {
+        display: block;
+        font-size: 18px;
+      }
     }
   }
   &-menu-btn {
     cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4px 0;
     .line:nth-child(1) {
       transform-origin: left top;
     }
@@ -50,12 +62,19 @@
       }
     }
     .line {
-      margin: 8px 0;
-      width: 36px;
-      height: 4px;
-      border-radius: 20px;
+      width: 100%;
+      height: 2px;
+      border-radius: 18px;
       background-color: white;
       transition: all 0.5s ease;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    &-btn {
+      display: none;
     }
   }
 }

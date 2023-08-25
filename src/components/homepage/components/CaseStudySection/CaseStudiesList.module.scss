@@ -1,0 +1,12 @@
+.case-study {
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  &-list {
+    margin-top: 45px;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-column-gap: 100px;
+  }
+}
