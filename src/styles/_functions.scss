@@ -1,6 +1,5 @@
-$zoom_ratio: 0.8;
-
 @function zoom_ratio ($value, $zoom_ratio: 0.8) {
+
   $return: ();
 
   @each $key in $value {
