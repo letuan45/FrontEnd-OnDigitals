@@ -6,17 +6,130 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  .stroke-wrapper svg {
+    transition: all 0.5s ease-in-out;
+  }
+  &-1 {
+    .item-image-wrapper {
+      &-sm-circle {
+        transition: all 0.6s ease-in-out;
+        transition-delay: 0.08s;
+        &::after {
+          top: 75%;
+          transform: translateX(50%);
+          background-color: $danger;
+        }
+      }
+    }
+    .stroke-wrapper svg {
+      transform: rotate(0);
+    }
+  }
+  &-2 {
+    .item-image-wrapper {
+      &-sm-circle {
+        transition: all 0.6s ease-in-out;
+        transition-delay: 0.08s;
+        &::after {
+          transform: translateY(75%) translateX(75%);
+          background-color: $primary-light;
+        }
+      }
+    }
+    .stroke-wrapper svg {
+      transform: rotate(90deg);
+    }
+  }
+  &-3 {
+    .item-image-wrapper {
+      &-sm-circle {
+        transition: all 0.6s ease-in-out;
+        transition-delay: 0.08s;
+        &::after {
+          top: 75%;
+          right: 0;
+          transform: translateX(-50%);
+          background-color: $red-light;
+        }
+      }
+    }
+    .stroke-wrapper svg {
+      transform: rotate(270deg);
+    }
+  }
+  &-1 {
+    &:hover {
+      .stroke-wrapper svg {
+        transform: rotate(180deg);
+      }
+      .item-image-wrapper {
+        &-sm-circle {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  &-2 {
+    &:hover {
+      .stroke-wrapper svg {
+        transform: rotate(270deg);
+      }
+      .item-image-wrapper {
+        &-sm-circle {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  &-3 {
+    &:hover {
+      .stroke-wrapper svg {
+        transform: rotate(450deg);
+      }
+      .item-image-wrapper {
+        &-sm-circle {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  &-image-2 {
+    .stroke-wrapper {
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+  }
+  &-image-3 {
+    .stroke-wrapper {
+      svg {
+        transform: rotate(270deg);
+      }
+    }
+  }
   &-image-wrapper {
     position: relative;
     width: 190px;
     height: 190px;
+    border-radius: 100%;
+    margin: 0 auto;
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 25.6px;
+      height: 25.6px;
+      border-radius: 100%;
+    }
     svg {
+      border-radius: 100%;
       position: absolute;
       z-index: 1;
       width: 100%;
       height: 100%;
       left: 0;
       top: 0;
+      display: inline-block;
     }
     &-main {
       position: absolute;
@@ -27,6 +140,23 @@
       transform: translate(-50%, -50%);
       img {
         border-radius: 100%;
+      }
+    }
+    &-sm-circle {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      border-radius: 50%;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        border-radius: 50%;
+        width: 25.6px;
+        height: 25.6px;
       }
     }
   }
@@ -64,7 +194,7 @@
       line-height: 24px;
       font-weight: 600;
       position: relative;
-      padding: 6%;
+      padding-left: 7%;
       margin-top: 16px;
       display: block;
       color: $neutral-900;
@@ -83,3 +213,35 @@
     }
   }
 }
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg); /* Góc quay ban đầu */
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg); /* Góc quay sau khi animation hoàn thành */
+  }
+}
+
+@media (max-width: 680px) {
+  .item {
+    grid-column: span 3 / span 3;
+    &:last-child {
+      position: relative;
+      left: 50%;
+      transform: translateX(10%);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .item {
+    grid-column: span 6 / span 6;
+    &:last-child {
+      position: unset;
+      left: unset;
+      transform: unset;
+    }
+  }
+}
+

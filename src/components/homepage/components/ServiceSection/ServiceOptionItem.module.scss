@@ -70,3 +70,12 @@
     }
   }
 }
+
+@media (max-width: 480px) {
+  .item {
+    margin: 4px 0;
+    &-wrapper {
+      padding: 6px;
+    }
+  }
+}
