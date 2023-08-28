@@ -62,7 +62,6 @@
       font-weight: 400;
       margin: 20px 0;
       color: $neutral-900;
-      max-height: 104px;
     }
     &__explore {
       font-size: 16px;
@@ -96,4 +95,63 @@
 .fade-in {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+  .service-details {
+    grid-column: span 8 / span 8;
+  }
+  .service-details {
+    &.primary-dark {
+      .service-details-header {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &.primary-light {
+      .service-details-header {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &.red-light {
+      .service-details-header {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &.red-dark {
+      .service-details-header {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 780px) {
+  .service-details {
+    &-content {
+      &__main {
+        font-size: 14px;
+        line-height: 20px;
+        overflow: hidden;
+        display: -webkit-box; /* Thêm dòng này */
+        -webkit-line-clamp: 6; /* Số dòng tối đa */
+        -webkit-box-orient: vertical; /* Hướng dòng (dọc) */
+      }
+    }
+    &-image {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      margin-left: auto;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .service-details {
+    grid-column: span 12 / span 12;
+  }
 }

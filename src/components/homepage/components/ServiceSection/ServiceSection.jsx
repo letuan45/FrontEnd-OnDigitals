@@ -4,6 +4,8 @@ import ServiceOptionsList from "./ServiceOptionsList";
 import ServiceDetail from "./ServiceDetail";
 import { useEffect, useState } from "react";
 import AnimatedLines from "./AnimatedLines";
+import ButtonNoBorder from "@/components/ui/Buttons/ButtonNoBorder/ButtonNoBorder";
+import TopRightArrow from "@/components/ui/Icons/TopRightArrow";
 
 const DUMMY_SERVICES = [
   {
@@ -170,10 +172,10 @@ const ServiceSection = () => {
   //Set active for the first item
   useEffect(() => {
     const data = [...renderServices].map((item, index) => {
-      if(index === 0) {
-        return {...item, isActive: true};
+      if (index === 0) {
+        return { ...item, isActive: true };
       }
-      return {...item, isActive: false};
+      return { ...item, isActive: false };
     });
     setRenderServices(data);
   }, []);
@@ -181,10 +183,10 @@ const ServiceSection = () => {
   const changeActiveItemHandler = (itemId) => {
     //Find and active Item
     const itemIndex = renderServices.findIndex((item) => item.id === itemId);
-    const item = {...renderServices[itemIndex], isActive: true};
+    const item = { ...renderServices[itemIndex], isActive: true };
     setCurrentActiveService(item);
-    let renderData = [...renderServices].map(item => {
-      return {...item, isActive: false};
+    let renderData = [...renderServices].map((item) => {
+      return { ...item, isActive: false };
     });
     renderData[itemIndex] = item;
     setRenderServices(renderData);
@@ -202,30 +204,16 @@ const ServiceSection = () => {
               For the persistent growth and creativity of ambitious brands
             </p>
             <Link className={classes["service-header-navigator"]} href="#">
-              <p>VIEW FULL SOLUTION</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M7 17L17 7"
-                  stroke="#131114"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M7 7H17V17"
-                  stroke="#131114"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <p></p>
             </Link>
+            <ButtonNoBorder
+              href="#"
+              RightIcon={
+                <TopRightArrow width={24} height={24} color="#131114" />
+              }
+            >
+              VIEW FULL SOLUTION
+            </ButtonNoBorder>
           </div>
           <div className={classes["service-grid__spacer"]}></div>
           <ServiceOptionsList

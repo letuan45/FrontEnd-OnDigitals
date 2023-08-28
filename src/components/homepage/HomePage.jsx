@@ -10,11 +10,11 @@ const HomePage = (allPosts) => {
   return (
     <>
       <IntroSection />
-      <PartnerSection/>
-      <ServiceSection/>
-      <CaseStudySection/>
-      <NewAndInsightsSection data={allPosts}/>
-      <ContactSection/>
+      <ServiceSection />
+      <PartnerSection />
+      <CaseStudySection />
+      <NewAndInsightsSection data={allPosts} />
+      <ContactSection />
     </>
   );
 }

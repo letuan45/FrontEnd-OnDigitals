@@ -1,6 +1,7 @@
-import Link from "next/link";
 import classes from "./CaseStudySection.module.scss";
 import CaseStudiesList from "./CaseStudiesList";
+import ButtonNoBorder from "@/components/ui/Buttons/ButtonNoBorder/ButtonNoBorder";
+import TopRightArrow from "@/components/ui/Icons/TopRightArrow";
 
 const DUMMY_CASE_STUDY = [
   {
@@ -44,33 +45,17 @@ const CaseStudySection = () => {
       <div className="container">
         <div className={classes["case-study-header"]}>
           <h2 className={classes["case-study-header__heading"]}>Case Study</h2>
-          <Link href="#">
-            <p>VIEW ALL</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M7 17L17 7"
-                stroke="#ffffff"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M7 7H17V17"
-                stroke="#ffffff"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
+          <ButtonNoBorder
+            href="#"
+            textSize="md"
+            RightIcon={<TopRightArrow width={24} height={24} color="#ffffff" />}
+          >
+            VIEW ALL
+          </ButtonNoBorder>
         </div>
-        <CaseStudiesList items={DUMMY_CASE_STUDY}/>
+      </div>
+      <div className="container-no-pd">
+        <CaseStudiesList items={DUMMY_CASE_STUDY} />
       </div>
     </section>
   );

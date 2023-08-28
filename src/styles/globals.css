@@ -48,6 +48,7 @@ body {
   outline: none;
 }
 
+/* start addition css */
 .h-full {
   height: 100%;
 }
@@ -63,7 +64,9 @@ body {
 .overflow-hidden {
   overflow: hidden;
 }
+/* end addition css */
 
+/* start container */
 .container--big {
   width: 100%;
   margin-right: auto;
@@ -87,7 +90,7 @@ body {
   }
 
   @media (max-width: 1280px) {
-    padding: 0 30px;
+    padding: 0 20px;
   }
 
   @media (min-width: 1280px) {
@@ -105,6 +108,10 @@ body {
     max-width: 640px;
   }
 
+  @media (max-width: 1280px) {
+    padding: 0 20px;
+  }
+
   @media (min-width: 768px) {
     max-width: 768px;
   }
@@ -117,6 +124,31 @@ body {
     max-width: 1280px;
   }
 }
+/* end container */
+
+.container-no-pd {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+  
+  @media (min-width: 640px) {
+    max-width: 640px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 768px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 1024px;
+  }
+
+  @media (min-width: 1280px) {
+    max-width: 1280px;
+  }
+}
+
 /* start NewAndInsightsSection homepage */
 .news-insights-swiper .swiper-pagination-bullet {
   width: 16px;
