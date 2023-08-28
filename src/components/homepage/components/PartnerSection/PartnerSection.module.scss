@@ -59,10 +59,7 @@
     height: 100%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   }
-  &__image:nth-child(2) img {
-    border: 3px solid rgba(111, 26, 182, 1);
-  }
-  &__image:nth-child(5) img {
+  &__image:nth-child(even) img {
     border: 3px solid rgba(111, 26, 182, 1);
   }
   &__colrightimage {
@@ -107,6 +104,7 @@
 
 @media (max-width: 768px) {
   .homepagesectionpartner {
+    height: auto;
     &__title {
       text-align: center;
       margin: 0 20px;
@@ -123,7 +121,18 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(4, 1fr);
-      gap: 30px 90px;
+      gap: 30px 60px;
+    }
+  }
+}
+@media (max-width: 300px) {
+  .homepagesectionpartner__content{
+    margin: 0 20px;
+    &__colrightimage {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 30px 20px;
     }
   }
 }

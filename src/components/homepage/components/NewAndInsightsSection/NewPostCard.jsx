@@ -10,7 +10,8 @@ export default function NewPostCard(data) {
           <Image
             src={post.featuredImage.node.sourceUrl}
             fill
-            alt="Picture of the author"
+            alt={post.title}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
         <div className={classes["card-news-insights__content"]}>

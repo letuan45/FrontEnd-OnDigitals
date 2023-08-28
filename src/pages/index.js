@@ -1,7 +1,6 @@
 import HomePage from "@/components/homepage/HomePage";
 import {getDataForNewAndInsightsSection} from "./api/graphql"
 export default function Home({allPosts}) {
-  console.log(allPosts)
   return (
     <div>
       <HomePage allPosts={allPosts}/>

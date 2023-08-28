@@ -1,2 +1,83 @@
 @import ".././../../../styles/variables";
 @import ".././../../../styles/mixins";
+.section-contact-form {
+  background-color: $primary-light;
+  height: 100vh;
+}
+.contact-section {
+  padding: 123px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__columLeft {
+    width: 45%;
+    &__form {
+      width: 100%;
+    }
+  }
+  &__columRight {
+    width: 40%;
+    transform: translateY(-30px);
+    &__image {
+      position: relative;
+      width: 329px;
+      height: 327px;
+    }
+    &__text {
+      p:first-child {
+        color: $white;
+        font-family: $font-primary;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 40px;
+        margin: 12px 0;
+      }
+      p:last-child {
+        color: $white;
+        font-family: $font-primary;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+      }
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .section-contact-form {
+    height: auto;
+  }
+  .contact-section {
+    padding: 0 20px;
+    &__columLeft {
+      width: 100%;
+      &__form {
+        width: 100%;
+      }
+    }
+    &__columRight {
+      width: 100%;
+      transform: unset;
+      margin: 30px 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 300px) {
+  .contact-section {
+    &__columRight {
+      &__image {
+        position: relative;
+        width: 272px;
+        height: 270px;
+      }
+    }
+  }
+}

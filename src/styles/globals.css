@@ -177,4 +177,25 @@ body {
   }
 }
 /* end NewAndInsightsSection homepage */
-
+/* error contac form */
+.message-errors-contact-form {
+  display: flex;
+  justify-content: flex-end;
+  color: #ff5252;
+  margin-bottom: 8px;
+}
+.message-errors-contact-form p {
+  margin-left: 10px;
+}
+.input-contact-form-error input {
+  border: 2px solid #ff5252 !important;
+}
+.input-contact-form-success input {
+  border: 2px solid #5CFFAE !important;
+}
+.icon-contact-form {
+  position: absolute;
+  top: 20%;
+  right: 2%;
+}
+/* error contact form */

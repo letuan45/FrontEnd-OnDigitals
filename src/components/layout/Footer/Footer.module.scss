@@ -16,8 +16,10 @@
       margin: 38px 0 10px 0;
     }
     .image-logo-footer {
+      position: relative;
       width: 241px;
       height: 108px;
+     
     }
   }
   .colum-2 {
@@ -95,8 +97,7 @@
     margin: 0 20px;
     justify-content: unset;
     .colum-1 {
-      width:45%;
-    
+      width: 45%;
     }
     .colum-2 {
       width: 45%;
@@ -115,9 +116,8 @@
 }
 @media (max-width: 640px) {
   .footer__row {
-    
     .colum-1 {
-      width:100%;
+      width: 100%;
       .title__company__footer {
         font-weight: 600;
         margin: 38px 0 10px 0;
@@ -128,18 +128,17 @@
       }
     }
     .colum-2 {
-      width:100%;
+      width: 100%;
       .row__services {
         display: flex;
         justify-content: space-between;
       }
     }
     .colum-3 {
-      width:100%;
+      width: 100%;
     }
     .colum-4 {
-      width:100%;
-     
+      width: 100%;
     }
   }
 }
