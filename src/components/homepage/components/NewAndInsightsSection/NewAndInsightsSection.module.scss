@@ -23,8 +23,9 @@
       background-color: #fff;
       position: relative;
       width: 100%;
-      box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 30px -3px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-      &__button a {
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 30px -3px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+      &__button span {
         color: #131114;
         font-family: $font-primary;
         font-size: 18px;
@@ -53,7 +54,7 @@
           line-height: 16px;
           width: auto;
           height: auto;
-          padding: 6px 12px
+          padding: 6px 12px;
         }
         &__dayView {
           display: flex;
@@ -137,7 +138,7 @@
   }
 }
 @media (max-width: 1024px) {
-  .section-new-insights { 
+  .section-new-insights {
     height: auto;
     &__content {
       padding: 0px;
@@ -145,6 +146,5 @@
         margin-top: 30px;
       }
     }
-   
   }
 }

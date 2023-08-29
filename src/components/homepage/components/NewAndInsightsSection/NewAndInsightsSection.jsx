@@ -33,12 +33,14 @@ export default function NewAndInsightsSection({ data }) {
             <Swiper
               cssMode={true}
               navigation={true}
-              pagination={true}
+              pagination={{
+                clickable: true,
+              }}
               mousewheel={true}
               freeMode={true}
               keyboard={true}
               autoplay={{
-                delay: 2500,
+                delay: 250000,
                 disableOnInteraction: false,
               }}
               breakpoints={{
