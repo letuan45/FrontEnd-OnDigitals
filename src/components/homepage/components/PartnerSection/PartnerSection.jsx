@@ -53,7 +53,7 @@ export default function PartnerSection() {
                 classes["homepagesectionpartner__content__colrightimage"]
               }
             >
-              <div className={divImage}>
+              <div className={`${divImage} pulse-grow`}>
                 <Image
                   src="/assets/images/sectionHomepage/areus-atelier.png"
                   fill
@@ -61,7 +61,7 @@ export default function PartnerSection() {
                   alt="Logo Atelier "
                 />
               </div>
-              <div className={divImage}>
+              <div className={`${divImage} pulse-grow`}>
                 <Image
                   src="/assets/images/sectionHomepage/renault.png"
                   fill
@@ -69,7 +69,7 @@ export default function PartnerSection() {
                   alt="Logo Renault "
                 />
               </div>
-              <div className={divImage}>
+              <div className={`${divImage} pulse-grow`}>
                 <Image
                   src="/assets/images/sectionHomepage/tpcom.png"
                   fill
@@ -77,7 +77,7 @@ export default function PartnerSection() {
                   alt="Logo TPcoms"
                 />
               </div>
-              <div className={divImage}>
+              <div className={`${divImage} pulse-grow`}>
                 <Image
                   src="/assets/images/sectionHomepage/ducati.png"
                   fill
@@ -85,16 +85,15 @@ export default function PartnerSection() {
                   alt="Logo Ducati"
                 />
               </div>
-              <div className={divImage}>
+              <div className={`${divImage} pulse-grow`}>
                 <Image
                   src="/assets/images/sectionHomepage/hantec.png"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   alt="Logo Hantec"
-
                 />
               </div>
-              <div className={divImage}>
+              <div className={`${divImage} pulse-grow`}>
                 <Image
                   src="/assets/images/sectionHomepage/livingcare.png"
                   fill
@@ -102,7 +101,7 @@ export default function PartnerSection() {
                   alt="Logo LivingCare"
                 />
               </div>
-              <div className={divImage}>
+              <div className={`${divImage} pulse-grow`}>
                 <Image
                   src="/assets/images/sectionHomepage/kundal.png"
                   fill
@@ -110,7 +109,7 @@ export default function PartnerSection() {
                   alt="Logo LivingCare"
                 />
               </div>
-              <div className={divImage}>
+              <div className={`${divImage} pulse-grow`}>
                 <Image
                   src="/assets/images/sectionHomepage/passion-wine.png"
                   fill

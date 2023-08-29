@@ -5,6 +5,9 @@ import MesageTextarea from "@/components/ui/Logo/Input/MesageTextarea";
 import Input from "@/components/ui/Logo/Input/Input";
 import { validationSchema } from "../../../../until/validationForm";
 import Image from "next/image";
+import Button from "@/components/ui/Buttons/Button/Button";
+import { ArrowRight, IconDanger, IconSuccess } from "@/components/ui/Icons/ListIcon";
+import Note from "@/components/ui/Note/Note";
 
 export default function ContactSection() {
   const formik = useFormik({
@@ -38,13 +41,11 @@ export default function ContactSection() {
               onBlur={formik.handleBlur}
               errors={
                 formik.touched.name && formik.errors.name
-                  ? formik.errors.name 
+                  ? formik.errors.name
                   : null
               }
               isSuccess={
-                formik.touched.name && !formik.errors.name
-                  ? true
-                  : false
+                formik.touched.name && !formik.errors.name ? true : false
               }
             />
             <Input
@@ -61,9 +62,7 @@ export default function ContactSection() {
                   : null
               }
               isSuccess={
-                formik.touched.email && !formik.errors.email
-                  ? true
-                  : false
+                formik.touched.email && !formik.errors.email ? true : false
               }
             />
 
@@ -73,9 +72,61 @@ export default function ContactSection() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.message}
+              errors={
+                formik.touched.message && formik.errors.message
+                  ? formik.errors.message
+                  : null
+              }
+              isSuccess={
+                formik.touched.message && !formik.errors.message ? true : false
+              }
             />
-            <div>
-              <button type="submit">Submit</button>
+            <div
+              className={
+                classes["contact-section__columLeft__form__buttonAndNote"]
+              }
+            >
+              <Note
+                content="Message sent! 
+             Thank you for contacting us.
+             We will reach out to you soon."
+                backgroundColor="#5CFFAE"
+                icon={
+                  <IconSuccess
+                    width={24}
+                    height={24}
+                    color="rgba(19, 17, 20, 1)"
+                  />
+                }
+              />
+              {/* <Note
+                content="Something went wrong! 
+                We couldn't receive your message.
+                Please wait and try again."
+                backgroundColor="#FF5252"
+                icon={
+                  <IconDanger
+                    width={24}
+                    height={24}
+                    color="rgba(255, 255, 255, 1)"
+                  />
+                }
+              /> */}
+              <div
+                className={
+                  classes[
+                    "contact-section__columLeft__form__buttonAndNote--btn"
+                  ]
+                }
+              >
+                <Button
+                  className="btn-contact-form"
+                  RightIcon={<ArrowRight width={24} height={24} color="#FFF" />}
+                >
+                  Send us a message
+                </Button>
+                <span>(*) Required field. See our Privacy Policy</span>
+              </div>
             </div>
           </form>
         </div>

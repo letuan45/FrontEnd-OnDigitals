@@ -14,10 +14,33 @@
     width: 45%;
     &__form {
       width: 100%;
+      &__buttonAndNote {
+        margin-top: 16px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        div:first-child{
+          width: 50%;
+        }
+        &--btn {
+          display: flex;
+          flex-direction: column;
+          span {
+            color: #dcc7ed;
+            text-align: center;
+            font-family: Maven Pro;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+            margin-top: 8px;
+          }
+        }
+      }
     }
   }
   &__columRight {
-    width: 40%;
+    width: 35%;
     transform: translateY(-30px);
     &__image {
       position: relative;
@@ -50,11 +73,30 @@
     height: auto;
   }
   .contact-section {
-    padding: 0 20px;
+    padding: 100px 20px;
     &__columLeft {
       width: 100%;
       &__form {
         width: 100%;
+        &__buttonAndNote {
+          div:first-child{
+            margin-bottom: 20px;
+          }
+          &--btn {
+            display: flex;
+            flex-direction: column;
+            span {
+              color: #dcc7ed;
+              text-align: center;
+              font-family: Maven Pro;
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 16px;
+              margin-top: 8px;
+            }
+          }
+        }
       }
     }
     &__columRight {
@@ -79,5 +121,34 @@
         height: 270px;
       }
     }
+    &__columLeft {
+      &__form {
+        width: 100%;
+        &__buttonAndNote {
+          div:first-child{
+            width: 100%;
+            margin-bottom: 20px;
+          }
+        
+        }
+      }
+    }
   }
 }
+@media (max-width: 640px) {
+  .contact-section {
+    &__columLeft {
+      &__form {
+        width: 100%;
+        &__buttonAndNote {
+          div:first-child{
+            width: 100%;
+            margin-bottom: 20px;
+          }
+        
+        }
+      }
+    }
+  }
+}
+

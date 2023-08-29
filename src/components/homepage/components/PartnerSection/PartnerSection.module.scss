@@ -125,14 +125,11 @@
     }
   }
 }
-@media (max-width: 300px) {
+@media (max-width: 360px) {
   .homepagesectionpartner__content{
-    margin: 0 20px;
+    margin: unset;
     &__colrightimage {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      gap: 30px 20px;
+      gap: 30px 20px !important;
     }
   }
 }

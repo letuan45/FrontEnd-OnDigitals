@@ -8,6 +8,7 @@ const ButtonNoBorder = ({ children, RightIcon, LeftIcon, href, textSize }) => {
       <p>{children}</p>
       {RightIcon && RightIcon}
     </Link>
+    
   );
 };
 
