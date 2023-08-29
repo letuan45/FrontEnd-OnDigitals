@@ -1,9 +1,15 @@
 import Image from "next/image";
 import classes from "./Logo.module.scss";
 
-const Logo = () => {
+const Logo = ({ isVisible }) => {
   return (
-    <div className={classes["logo-container"]}>
+    <div
+      className={classes["logo-container"]}
+      style={{
+        visibility: isVisible ? "visible" : "hidden",
+        opacity: isVisible ? "1" : "0",
+      }}
+    >
       <Image
         src="/assets/images/ui/Logo.png"
         fill

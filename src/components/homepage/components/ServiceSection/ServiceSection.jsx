@@ -197,9 +197,9 @@ const ServiceSection = () => {
       <div className="container">
         <div className={classes["service-grid"]}>
           <div className={classes["service-header"]}>
-            <h2 className={classes["service-header-title"]}>
+            <p className={classes["service-header-title"]}>
               We offer The best DIGITAL SERVICES
-            </h2>
+            </p>
             <p className={classes["service-header-desc"]}>
               For the persistent growth and creativity of ambitious brands
             </p>

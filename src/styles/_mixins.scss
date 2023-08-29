@@ -1,6 +1,5 @@
 @mixin number {
   color: #fff;
-  font-family: $font-primary;
   font-size: 28px;
   font-style: normal;
   font-weight: 600;
@@ -8,7 +7,6 @@
 }
 @mixin text {
   color: #fff;
-  font-family: $font-primary;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

@@ -40,10 +40,6 @@ a {
   color: inherit;
 }
 
-body {
-  font-family: Arial, sans-serif;
-}
-
 :focus {
   outline: none;
 }
@@ -231,3 +227,8 @@ body {
   right: 2%;
 }
 /* error contact form */
+
+#__next {
+  position: relative;
+  /* overflow: hidden; */
+}

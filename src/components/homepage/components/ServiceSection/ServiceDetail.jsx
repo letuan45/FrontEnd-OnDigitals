@@ -2,6 +2,9 @@ import Link from "next/link";
 import classes from "./ServiceDetail.module.scss";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { Maven_Pro } from "next/font/google";
+
+const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 
 const ServiceDetail = ({ context }) => {
   const contentRef = useRef(null);
@@ -24,10 +27,13 @@ const ServiceDetail = ({ context }) => {
       <div className={classes["service-details-header"]}></div>
       <div className={classes["service-details-content"]} ref={contentRef}>
         <div className={classes["service-details-content-wrapper"]}>
-          <h3 className={classes["service-details-content__title"]}>
+          <p className={classes["service-details-content__title"]}>
             {context.title}
-          </h3>
-          <div className={classes["service-details-content__main"]}>
+          </p>
+          <div
+            className={classes["service-details-content__main"]}
+            style={{ fontFamily: MavenPro.style.fontFamily }}
+          >
             {context.content}
           </div>
           <Link

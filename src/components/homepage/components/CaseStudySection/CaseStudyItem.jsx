@@ -2,6 +2,10 @@ import Image from "next/image";
 import classes from "./CaseStudyItem.module.scss";
 import Link from "next/link";
 
+import { Maven_Pro } from "next/font/google";
+
+const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
+
 const CaseStudyItem = ({ item, index }) => {
   const itemClasses = `${classes.item} ${classes[`item-${index + 1}`]}`;
   return (
@@ -45,7 +49,10 @@ const CaseStudyItem = ({ item, index }) => {
         </div>
         <div className={classes["item-description"]}>
           <p className={classes["item-description-name"]}>{item.name}</p>
-          <div className={classes["item-description-wrapper"]}>
+          <div
+            className={classes["item-description-wrapper"]}
+            style={{ fontFamily: MavenPro.style.fontFamily}}
+          >
             <ul className={classes["item-description-wrapper-list"]}>
               {item.descriptions.map((item, index) => (
                 <li key={index}>{item}</li>

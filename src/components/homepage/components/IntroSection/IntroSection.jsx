@@ -1,5 +1,8 @@
 import Image from "next/image";
 import classes from "./IntroSection.module.scss";
+import { Maven_Pro } from "next/font/google";
+
+const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 
 const IntroSection = () => {
   return (
@@ -7,7 +10,7 @@ const IntroSection = () => {
       <div className="container relative">
         <div className={classes["intro-layout"]}>
           <div className={classes["intro-layout-item"]}>
-            <h2 className={classes["intro-greeting"]}>Hello, We Are</h2>
+            <p className={classes["intro-greeting"]}>Hello, We Are</p>
             <div className={classes["intro-brand-img-container"]}>
               <Image
                 className={classes["intro-brand-img"]}
@@ -17,7 +20,10 @@ const IntroSection = () => {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
-            <p className={classes["intro-description"]}>
+            <p
+              className={classes["intro-description"]}
+              style={{ fontFamily: MavenPro.style.fontFamily }}
+            >
               Thinking inside the box
             </p>
           </div>
@@ -41,7 +47,9 @@ const IntroSection = () => {
           <div className={classes["scroll-msg__line"]}>
             <p></p>
           </div>
-          <p>to discover more</p>
+          <p style={{ fontFamily: MavenPro.style.fontFamily }}>
+            to discover more
+          </p>
         </div>
       </div>
     </section>

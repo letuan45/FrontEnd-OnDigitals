@@ -13,6 +13,7 @@
   height: 100vh;
   display: flex;
   align-items: center;
+  position: relative;
   &-brand-img-container {
     width: 523px;
     height: 60.5px;
@@ -117,15 +118,6 @@
       text-align: center;
     }
   }
-  .scroll-msg {
-    bottom: 4%;
-  }
-}
-
-@media (max-width: 768px) {
-  .scroll-msg {
-    bottom: 4%;
-  }
 }
 
 @media (max-width: 640px) {
@@ -165,9 +157,6 @@
       }
     }
   }
-  .scroll-msg {
-    bottom: 25%;
-  }
 }
 
 @media (max-width: 380px) {
@@ -177,6 +166,10 @@
       height: zoom_ratio(60.5px, 0.5);
       margin: 30px auto;
     }
+  }
+
+  .scroll-msg {
+    display: none;
   }
 }
 
