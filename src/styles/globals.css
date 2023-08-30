@@ -251,4 +251,13 @@ a {
 }
 /* hiệu ứng hover ảnh phần parner homepage */
 
+/* MAIN SWIPER */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
 
+.sectionSwiper.swiper {
+  width: 100%;
+  height: 100vh;
+}
