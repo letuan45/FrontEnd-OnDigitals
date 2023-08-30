@@ -7,7 +7,8 @@ import {
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
 import classes from "./Footer.module.scss";
-
+import { Maven_Pro } from "next/font/google";
+const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 export default function Footer() {
   return (
     <footer className={classes["footer"]}>
@@ -23,7 +24,10 @@ export default function Footer() {
               />
             </div>
             <div>
-              <p className={classes["title__company__footer"]}>
+              <p
+                style={{ fontFamily: MavenPro.style.fontFamily }}
+                className={classes["title__company__footer"]}
+              >
                 ON DIGITALS COMPANY LIMITED
               </p>
               <p>
@@ -41,7 +45,10 @@ export default function Footer() {
           <div className={classes["colum-2"]}>
             <p className={classes["colum__title"]}>SERVICES</p>
             <div className={classes["row__services"]}>
-              <div className={classes["colum-2__left"]}>
+              <div
+                style={{ fontFamily: MavenPro.style.fontFamily }}
+                className={classes["colum-2__left"]}
+              >
                 <ul>
                   <li>
                     <a>SEO</a>
@@ -63,7 +70,10 @@ export default function Footer() {
                   </li>
                 </ul>
               </div>
-              <div className={classes["colum-2__right"]}>
+              <div
+                style={{ fontFamily: MavenPro.style.fontFamily }}
+                className={classes["colum-2__right"]}
+              >
                 <ul>
                   <li>
                     <a>Content Marketing</a>
@@ -96,7 +106,7 @@ export default function Footer() {
           <div className={classes["colum-3"]}>
             <div>
               <p className={classes["colum__title"]}>EXPLORE</p>
-              <ul>
+              <ul style={{ fontFamily: MavenPro.style.fontFamily }}>
                 <li>
                   <a>About On Digitals</a>
                 </li>

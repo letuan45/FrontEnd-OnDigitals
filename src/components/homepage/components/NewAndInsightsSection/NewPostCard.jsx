@@ -2,6 +2,8 @@ import React from "react";
 import classes from "./NewAndInsightsSection.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { Maven_Pro } from "next/font/google";
+const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 export default function NewPostCard(data) {
   const post = data.data;
   return (
@@ -20,10 +22,14 @@ export default function NewPostCard(data) {
           </div>
           <div className={classes["card-news-insights__content"]}>
             <div className={classes["card-news-insights__content__dayView"]}>
-              <span className={classes["card-news-insights__content--tag"]}>
+              <span
+                style={{ fontFamily: MavenPro.style.fontFamily }}
+                className={classes["card-news-insights__content--tag"]}
+              >
                 SEO Tips
               </span>
               <p
+                style={{ fontFamily: MavenPro.style.fontFamily }}
                 className={
                   classes["card-news-insights__content__dayView--date"]
                 }
@@ -51,6 +57,7 @@ export default function NewPostCard(data) {
               {post.title}
             </p>
             <div
+              style={{ fontFamily: MavenPro.style.fontFamily }}
               className={classes["card-news-insights__content--text"]}
               dangerouslySetInnerHTML={{ __html: post.excerpt }}
             ></div>

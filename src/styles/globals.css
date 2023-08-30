@@ -175,7 +175,6 @@ a {
   left: 0;
   transform: translate(-40%, -50%);
   z-index: -1;
-  transition: all 0.5s;
 }
 .news-insights-swiper .swiper-wrapper .swiper-slide:hover {
   transform: translateY(-30px);
@@ -239,7 +238,8 @@ a {
 }
 /* hiệu ứng hover ảnh phân parner homepage */
 @keyframes pulseGrow {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -250,4 +250,5 @@ a {
   animation: pulseGrow 1.5s infinite;
 }
 /* hiệu ứng hover ảnh phần parner homepage */
+
 

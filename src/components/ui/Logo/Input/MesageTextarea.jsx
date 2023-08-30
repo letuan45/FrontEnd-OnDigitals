@@ -1,5 +1,7 @@
 import React from "react";
 import classes from "./styleForm.module.scss";
+import { Maven_Pro } from "next/font/google";
+const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 export default function MesageTextarea({
   name,
   placeholder,
@@ -16,7 +18,7 @@ export default function MesageTextarea({
           errors != null ? "input-contact-form-error" : ""
         } ${isSuccess ? "input-contact-form-success" : ""}`}
       >
-        <div style={{position:"relative"}}>
+        <div style={{ position: "relative" }}>
           <label htmlFor={name}>Message</label>
           <textarea
             id={name}
@@ -25,6 +27,7 @@ export default function MesageTextarea({
             onChange={onChange}
             onBlur={onBlur}
             value={value}
+            style={{ fontFamily: MavenPro.style.fontFamily }}
           />
           {errors && (
             <div className="icon-contact-form-textarea">
@@ -122,7 +125,7 @@ export default function MesageTextarea({
               </clipPath>
             </defs>
           </svg>
-          <p> {errors}</p>
+          <p style={{ fontFamily: MavenPro.style.fontFamily }}> {errors}</p>
         </div>
       ) : null}
     </>

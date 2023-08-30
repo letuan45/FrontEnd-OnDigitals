@@ -2,7 +2,8 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import classes from "./PartnerSection.module.scss";
-
+import { Maven_Pro } from "next/font/google";
+const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 export default function PartnerSection() {
   const divImage = `${classes["homepagesectionpartner__content__image"]} ${classes["hvr-bounce-in"]}`;
   return (
@@ -17,7 +18,10 @@ export default function PartnerSection() {
               <p className={classes["homepagesectionpartner__content--number"]}>
                 500+
               </p>
-              <p className={classes["homepagesectionpartner__content--text"]}>
+              <p
+                style={{ fontFamily: MavenPro.style.fontFamily }}
+                className={classes["homepagesectionpartner__content--text"]}
+              >
                 TRUSTED CLIENTS
               </p>
             </div>
@@ -25,7 +29,10 @@ export default function PartnerSection() {
               <p className={classes["homepagesectionpartner__content--number"]}>
                 300+
               </p>
-              <p className={classes["homepagesectionpartner__content--text"]}>
+              <p
+                style={{ fontFamily: MavenPro.style.fontFamily }}
+                className={classes["homepagesectionpartner__content--text"]}
+              >
                 SUCCESSFUL CAMPAIGNS
               </p>
             </div>
@@ -33,7 +40,10 @@ export default function PartnerSection() {
               <p className={classes["homepagesectionpartner__content--number"]}>
                 1000+
               </p>
-              <p className={classes["homepagesectionpartner__content--text"]}>
+              <p
+                style={{ fontFamily: MavenPro.style.fontFamily }}
+                className={classes["homepagesectionpartner__content--text"]}
+              >
                 TRUSTED CLIENTS
               </p>
             </div>
@@ -106,7 +116,7 @@ export default function PartnerSection() {
                   src="/assets/images/sectionHomepage/kundal.png"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  alt="Logo LivingCare"
+                  alt="Logo kundal"
                 />
               </div>
               <div className={`${divImage} pulse-grow`}>
@@ -114,7 +124,7 @@ export default function PartnerSection() {
                   src="/assets/images/sectionHomepage/passion-wine.png"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  alt="Logo LivingCare"
+                  alt="Logo passion-wine"
                 />
               </div>
             </div>

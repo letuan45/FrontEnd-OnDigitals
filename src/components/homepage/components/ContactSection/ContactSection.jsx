@@ -6,9 +6,14 @@ import Input from "@/components/ui/Logo/Input/Input";
 import { validationSchema } from "../../../../until/validationForm";
 import Image from "next/image";
 import Button from "@/components/ui/Buttons/Button/Button";
-import { ArrowRight, IconDanger, IconSuccess } from "@/components/ui/Icons/ListIcon";
+import {
+  ArrowRight,
+  IconDanger,
+  IconSuccess,
+} from "@/components/ui/Icons/ListIcon";
 import Note from "@/components/ui/Note/Note";
-
+import { Maven_Pro } from "next/font/google";
+const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 export default function ContactSection() {
   const formik = useFormik({
     initialValues: {
@@ -125,7 +130,9 @@ export default function ContactSection() {
                 >
                   Send us a message
                 </Button>
-                <span>(*) Required field. See our Privacy Policy</span>
+                <span style={{ fontFamily: MavenPro.style.fontFamily }}>
+                  (*) Required field. See our Privacy Policy
+                </span>
               </div>
             </div>
           </form>

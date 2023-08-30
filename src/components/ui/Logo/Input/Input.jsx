@@ -1,5 +1,7 @@
 import React from "react";
 import classes from "./styleForm.module.scss";
+import { Maven_Pro } from "next/font/google";
+const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 export default function Input({
   title,
   type,
@@ -27,6 +29,7 @@ export default function Input({
           onChange={onChange}
           onBlur={onBlur}
           autoComplete="true"
+          style={{ fontFamily: MavenPro.style.fontFamily }}
         />
         {errors && (
           <div className="icon-contact-form">
@@ -123,7 +126,7 @@ export default function Input({
               </clipPath>
             </defs>
           </svg>
-          <p> {errors}</p>
+          <p style={{ fontFamily: MavenPro.style.fontFamily }}> {errors}</p>
         </div>
       ) : null}
     </div>

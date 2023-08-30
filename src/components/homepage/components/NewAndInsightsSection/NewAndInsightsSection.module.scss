@@ -27,7 +27,6 @@
         rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
       &__button span {
         color: #131114;
-        font-family: $font-primary;
         font-size: 18px;
         font-style: normal;
         font-weight: 600;
@@ -39,7 +38,7 @@
         align-self: stretch;
       }
       &__content {
-        padding: 16px;
+        padding: 10px;
         &--tag {
           border-radius: 40px;
           background: #3d1766;
@@ -47,7 +46,6 @@
           justify-content: center;
           align-items: center;
           color: #fff;
-          font-family: $font-primary;
           font-size: 12px;
           font-style: normal;
           font-weight: 600;
@@ -63,7 +61,6 @@
           justify-content: space-between;
           p {
             color: var(--neutral-100, #131114);
-            font-family: $font-primary;
             font-size: 12px;
             font-style: normal;
             font-weight: 600;
@@ -72,16 +69,15 @@
         }
         &--titlePost {
           color: #131114;
-          font-family: $font-primary;
           font-size: 20px;
           font-style: normal;
           font-weight: 600;
           line-height: 28px;
-          padding-top: 16px;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
           overflow: hidden;
+          text-align: start;
         }
         &--text {
           color: #131114;
@@ -90,12 +86,12 @@
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
           overflow: hidden;
-          font-family: $font-primary;
           font-size: 16px;
           font-style: normal;
           font-weight: 400;
           line-height: 24px;
           margin: 16px 0;
+          text-align: start;
         }
       }
 
@@ -119,7 +115,6 @@
     flex-wrap: wrap;
     &--left {
       color: #131114;
-      font-family: $font-primary;
       font-size: 36px;
       font-style: normal;
       font-weight: 600;
@@ -128,7 +123,6 @@
     }
     &--right {
       color: #131313;
-      font-family: $font-primary;
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
