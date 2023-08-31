@@ -1,61 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "@/components/ui/Logo/Logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLanguage, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { faLanguage } from "@fortawesome/free-solid-svg-icons";
 import classes from "./Header.module.scss";
 import BottomNavigator from "../BottomNavigator/BottomNavigator";
 import Link from "next/link";
 import ExpanseMenu from "@/components/ui/ExpanseMenu/ExpanseMenu";
-
-
-const overlayOptions = [
-  {
-    id: 1,
-    backgroundColor: "#3D1766",
-    delay: 0,
-  },
-  {
-    id: 2,
-    backgroundColor: "#6F1AB6",
-    delay: 0.2,
-  },
-  {
-    id: 3,
-    backgroundColor: "#FF0032",
-    delay: 0.3,
-  },
-  {
-    id: 4,
-    backgroundColor: "#CD0404",
-    delay: 0.4,
-  },
-];
-
-const menuItems = [
-  {
-    id: 1,
-    name: "About us",
-  },
-  {
-    id: 2,
-    name: "Services",
-  },
-  {
-    id: 3,
-    name: "Case study",
-  },
-  {
-    id: 4,
-    name: "Blog",
-  },
-  {
-    id: 5,
-    name: "Contact",
-  },
-];
+import { overlayOptions, menuItems } from "@/configurations/menuData";
 
 const Header = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const menuButtonClasses = `${classes["header-menu-btn"]} ${
     menuIsOpen ? classes["active"] : ""
   }`;
@@ -64,13 +19,38 @@ const Header = () => {
     setMenuIsOpen((oldState) => !oldState);
   };
 
-  // useEffect(() => {
-  //   if (menuIsOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "unset";
-  //   }
-  // }, [menuIsOpen]);
+  useEffect(() => {
+    const handleScroll = (e) => {
+      const header = document.querySelector(".main-header-g");
+      const headerHeight = header.getBoundingClientRect().top;
+      const headerScrollOffset = headerHeight + window.scrollY;
+
+      const serviceSection = document.querySelector(".service-section");
+      if (!serviceSection) return;
+
+      const serviceSectionTop = serviceSection.offsetTop;
+      const serviceSectionBottom =
+        serviceSection.offsetTop + serviceSection.offsetHeight - headerHeight;
+
+
+      if (
+        headerScrollOffset >= serviceSectionTop &&
+        headerScrollOffset <= serviceSectionBottom
+      ) {
+        setIsDark(true);
+      } else {
+        setIsDark(false);
+      }
+    };
+
+    // Thêm lắng nghe sự kiện cuộn trang
+    window.addEventListener("scroll", handleScroll);
+
+    // Loại bỏ lắng nghe khi component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div>
@@ -79,10 +59,14 @@ const Header = () => {
         isActive={menuIsOpen}
         menu={menuItems}
       />
-      <header className={classes["main-header"]}>
+      <header
+        className={`${classes["main-header"]} main-header-g ${
+          isDark ? classes["main-header-dark"] : ""
+        }`}
+      >
         <div className="container--big">
           <div className={classes["header-wrapper"]}>
-            <Logo isVisible={!menuIsOpen} />
+            <Logo isVisible={!menuIsOpen} isDark={isDark}/>
             <div className={classes["header-wrapper-fn"]}>
               <Link
                 href="#"

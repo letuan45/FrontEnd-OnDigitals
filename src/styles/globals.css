@@ -257,7 +257,29 @@ a {
   height: 0;
 }
 
-.sectionSwiper.swiper {
+ .section-swiper.swiper {
   width: 100%;
   height: 100vh;
 }
+
+/* 
+.section-swiper .swiper-button-prev,
+.section-swiper .swiper-button-next {
+  transform: rotate(90deg);
+  color: black;
+  top: 94%;
+  left: unset;
+  right: 5%;
+}
+
+.section-swiper .swiper-button-prev.swiper-button-disabled,
+.section-swiper .swiper-button-next.swiper-button-disabled {
+  display: none;
+} */
+
+/* Header */
+.main-header-g.hide {
+  display: none;
+}
+
+

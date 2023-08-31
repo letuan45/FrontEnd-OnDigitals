@@ -83,6 +83,44 @@ const IconDanger = ({ width, height, color }) => {
     </svg>
   );
 };
+export const DownNavIcon = ({ width, height, color }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={`${width}`}
+      height={`${height}`}
+      viewBox={`0 0 ${width} ${height}`}
+      fill="none"
+    >
+      <path
+        d="M7.5 11.25L15 18.75L22.5 11.25"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+export const UpNavIcon = ({ width, height, color }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={`${width}`}
+      height={`${height}`}
+      viewBox={`0 0 ${width} ${height}`}
+      fill="none"
+    >
+      <path
+        d="M22.5 18.75L15 11.25L7.5 18.75"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
 export { ArrowRight, IconSuccess, IconDanger };
 
 

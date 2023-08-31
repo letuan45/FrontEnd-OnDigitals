@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import AnimatedLines from "./AnimatedLines";
 import ButtonNoBorder from "@/components/ui/Buttons/ButtonNoBorder/ButtonNoBorder";
 import TopRightArrow from "@/components/ui/Icons/TopRightArrow";
+import SectionHeader from "@/components/ui/SectionHeader/SectionHeader";
 
 const DUMMY_SERVICES = [
   {
@@ -164,10 +165,11 @@ const DUMMY_SERVICES = [
   },
 ];
 
-const ServiceSection = () => {
+const ServiceSection = ({ NavButton }) => {
   const services = DUMMY_SERVICES;
   const [renderServices, setRenderServices] = useState(services);
   const [currentActiveService, setCurrentActiveService] = useState(services[0]);
+  const [isOnMobile, setIsOnMobile] = useState(false);
 
   //Set active for the first item
   useEffect(() => {
@@ -178,6 +180,20 @@ const ServiceSection = () => {
       return { ...item, isActive: false };
     });
     setRenderServices(data);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsOnMobile(window.innerWidth < 1280);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const changeActiveItemHandler = (itemId) => {
@@ -193,7 +209,8 @@ const ServiceSection = () => {
   };
 
   return (
-    <section className={classes["service"]}>
+    <section className={`${classes["service"]} service-section`}>
+      {!isOnMobile && <SectionHeader isDark />}
       <div className="container">
         <div className={classes["service-grid"]}>
           <div className={classes["service-header"]}>
@@ -224,6 +241,7 @@ const ServiceSection = () => {
         </div>
       </div>
       <AnimatedLines />
+      {NavButton && NavButton}
     </section>
   );
 };

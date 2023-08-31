@@ -2,6 +2,8 @@ import classes from "./CaseStudySection.module.scss";
 import CaseStudiesList from "./CaseStudiesList";
 import ButtonNoBorder from "@/components/ui/Buttons/ButtonNoBorder/ButtonNoBorder";
 import TopRightArrow from "@/components/ui/Icons/TopRightArrow";
+import SectionHeader from "@/components/ui/SectionHeader/SectionHeader";
+import { useEffect, useState } from "react";
 
 const DUMMY_CASE_STUDY = [
   {
@@ -39,9 +41,26 @@ const DUMMY_CASE_STUDY = [
   },
 ];
 
-const CaseStudySection = () => {
+const CaseStudySection = ({ NavButton }) => {
+  const [isOnMobile, setIsOnMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsOnMobile(window.innerWidth < 1280);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <section className={classes["case-study"]}>
+    <section className={`${classes["case-study"]} case-study-section`}>
+      {!isOnMobile && <SectionHeader />}
       <div className="container">
         <div className={classes["case-study-header"]}>
           <h2 className={classes["case-study-header__heading"]}>Case Study</h2>
@@ -57,6 +76,7 @@ const CaseStudySection = () => {
       <div className="container-no-pd">
         <CaseStudiesList items={DUMMY_CASE_STUDY} />
       </div>
+      {NavButton && NavButton}
     </section>
   );
 };

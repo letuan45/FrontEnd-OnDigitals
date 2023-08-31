@@ -3,11 +3,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import classes from "./PartnerSection.module.scss";
 import { Maven_Pro } from "next/font/google";
+import SectionHeader from "@/components/ui/SectionHeader/SectionHeader";
+import { useEffect, useState } from "react";
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
-export default function PartnerSection() {
+
+export default function PartnerSection({ NavButton }) {
   const divImage = `${classes["homepagesectionpartner__content__image"]} ${classes["hvr-bounce-in"]}`;
+  const [isOnMobile, setIsOnMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsOnMobile(window.innerWidth < 1280);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <section className={classes["homepagesectionpartner"]}>
+    <section className={`${classes["homepagesectionpartner"]} partner-section`}>
+      {!isOnMobile && <SectionHeader />}
       <div className="container">
         <p className={classes["homepagesectionpartner__title"]}>
           YOUR PARTNER in digital growt
@@ -139,6 +158,7 @@ export default function PartnerSection() {
           </a>
         </div>
       </div>
+      {NavButton && NavButton}
     </section>
   );
 }

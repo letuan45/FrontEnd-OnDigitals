@@ -8,30 +8,44 @@ import ContactSection from "./components/ContactSection/ContactSection";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
-import { EffectFade, Mousewheel, Navigation } from "swiper/modules";
+import { EffectFade, Mousewheel } from "swiper/modules";
 import "swiper/css/effect-fade";
 import "swiper/css/mousewheel";
-import "swiper/css/navigation";
 import { useEffect, useRef, useState } from "react";
+import SectionNavButtons from "../ui/Buttons/SectionNavButtons/SectionNavButtons";
 
 const HomePage = (allPosts) => {
+  const [isShowSectionSlide, setIsShowSectionSlide] = useState(true);
   const swiperRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsShowSectionSlide(!(window.innerWidth < 1280));
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     window.history.scrollRestoration = "manual";
   }, []);
 
-  const handleSlideChange = (swiper) => {};
-
-  //Xác định scroll lên, đạt đến 100vh của slider thì enable
   useEffect(() => {
+    if (!isShowSectionSlide) return;
     const handleScrollWheel = (event) => {
       const wheelDirection = event.deltaY > 0 ? "down" : "up";
       const swiperElement = swiperRef.current;
       const swiperObj = swiperElement.swiper;
+      if (!swiperObj) return;
       const elementTop = swiperElement.getBoundingClientRect().top;
 
-      if (swiperObj.activeIndex !== 4) {
+      if (swiperObj.activeIndex !== 4 && swiperObj.activeIndex !== 0) {
         window.scrollTo({ top: 0, behavior: "instant" });
         return;
       }
@@ -46,7 +60,6 @@ const HomePage = (allPosts) => {
         return;
       }
 
-      //Kiểm tra xem phần tử có trong tầm nhìn của viewport không
       if (elementTop === 0 && swiperObj.isEnd && wheelDirection === "up") {
         swiperObj.enabled = true;
         return;
@@ -55,42 +68,89 @@ const HomePage = (allPosts) => {
 
     window.addEventListener("wheel", handleScrollWheel);
 
-    // Dọn dẹp sự kiện khi component bị hủy
     return () => {
       window.removeEventListener("wheel", handleScrollWheel);
     };
   }, []);
 
+  const nextSlideHandler = () => {
+    swiperRef.current.swiper.slideNext();
+  };
+
+  const handleSlideChange = (swiper) => {
+    const header = document.querySelector(".main-header-g");
+    if (swiper.activeIndex > 0 && swiper.activeIndex <= 3) {
+      header.classList.add("hide");
+    } else {
+      header.classList.remove("hide");
+    }
+  };
+
   return (
     <>
-      <Swiper
-        ref={swiperRef}
-        onSlideChange={(swiper) => handleSlideChange(swiper)}
-        modules={[EffectFade, Mousewheel, Navigation]}
-        direction={"vertical"}
-        effect="fade"
-        allowTouchMove={false}
-        navigation={true}
-        className="sectionSwiper"
-        mousewheel={true}
-        speed={1500}
-      >
-        <SwiperSlide>
+      {isShowSectionSlide && (
+        <Swiper
+          onSlideChange={(swiper) => handleSlideChange(swiper)}
+          ref={swiperRef}
+          modules={[EffectFade, Mousewheel]}
+          direction={"vertical"}
+          effect="fade"
+          allowTouchMove={false}
+          className="section-swiper"
+          mousewheel={true}
+          speed={1500}
+        >
+          <SwiperSlide>
+            <IntroSection />
+          </SwiperSlide>
+          <SwiperSlide>
+            <ServiceSection
+              NavButton={
+                <SectionNavButtons
+                  color="black"
+                  isDown
+                  onClick={nextSlideHandler}
+                />
+              }
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <PartnerSection
+              NavButton={
+                <SectionNavButtons
+                  color="white"
+                  isDown
+                  onClick={nextSlideHandler}
+                />
+              }
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <CaseStudySection
+              NavButton={
+                <SectionNavButtons
+                  color="white"
+                  isDown
+                  onClick={nextSlideHandler}
+                />
+              }
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <NewAndInsightsSection data={allPosts} />
+          </SwiperSlide>
+        </Swiper>
+      )}
+      {!isShowSectionSlide && swiperRef.current.swiper && (
+        <>
           <IntroSection />
-        </SwiperSlide>
-        <SwiperSlide>
           <ServiceSection />
-        </SwiperSlide>
-        <SwiperSlide>
           <PartnerSection />
-        </SwiperSlide>
-        <SwiperSlide>
           <CaseStudySection />
-        </SwiperSlide>
-        <SwiperSlide>
           <NewAndInsightsSection data={allPosts} />
-        </SwiperSlide>
-      </Swiper>
+        </>
+      )}
+
       <ContactSection />
     </>
   );

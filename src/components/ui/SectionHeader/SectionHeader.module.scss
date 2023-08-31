@@ -3,7 +3,7 @@
 
 .main-header {
   z-index: $header-index;
-  position: fixed;
+  position: absolute;
   top: $header-padding;
   width: 100%;
 }
@@ -77,16 +77,11 @@
   }
 }
 
-.main-header-dark {
+.dark {
   .header {
     &-menu-btn {
       .line {
         background-color: black;
-      }
-      &.active {
-        .line {
-          background-color: white;
-        }
       }
     }
   }
