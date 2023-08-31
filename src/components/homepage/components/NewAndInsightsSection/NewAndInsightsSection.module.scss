@@ -4,8 +4,8 @@
 
 .section-new-insights {
   background-color: #faf5ff;
-  height: auto;
-  padding: 60px 20px;
+  height: 100vh;
+  padding: 45px 20px;
   &__content {
     padding: 15px;
     .button-discover-more {
@@ -59,6 +59,7 @@
           padding: 16px 0;
           align-items: center;
           justify-content: space-between;
+          flex-wrap: wrap;
           p {
             color: var(--neutral-100, #131114);
             font-size: 12px;
@@ -97,8 +98,8 @@
 
       &__image {
         width: 100%;
-        height: 200px;
-        min-height: 200px;
+        height: 170px;
+        min-height: 170px;
         overflow: hidden;
         position: relative;
         img {
@@ -138,6 +139,38 @@
       padding: 0px;
       .button-discover-more {
         margin-top: 30px;
+      }
+    }
+  }
+}
+@media (max-width: 320px) {
+  .section-new-insights {
+    height: auto;
+    &__content {
+      padding: 0px;
+      .button-discover-more {
+        margin-top: 30px;
+      }
+      .card-news-insights {
+        border-radius: 20px 20px 0px 0px;
+        background-color: #fff;
+        position: relative;
+        width: 100%;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 30px -3px,
+          rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        &__content {
+          padding: 10px;
+        
+          &__dayView {
+            justify-content: space-evenly;
+            p {
+             margin-top: 10px;
+             margin-right: 5px;
+            }
+          }
+        }
+  
+        
       }
     }
   }

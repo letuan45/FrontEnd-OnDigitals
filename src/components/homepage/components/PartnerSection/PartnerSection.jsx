@@ -6,7 +6,6 @@ import { Maven_Pro } from "next/font/google";
 import SectionHeader from "@/components/ui/SectionHeader/SectionHeader";
 import { useEffect, useState } from "react";
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
-
 export default function PartnerSection({ NavButton }) {
   const divImage = `${classes["homepagesectionpartner__content__image"]} ${classes["hvr-bounce-in"]}`;
   const [isOnMobile, setIsOnMobile] = useState(false);
@@ -28,8 +27,8 @@ export default function PartnerSection({ NavButton }) {
     <section className={`${classes["homepagesectionpartner"]} partner-section`}>
       {!isOnMobile && <SectionHeader />}
       <div className="container">
-        <p className={classes["homepagesectionpartner__title"]}>
-          YOUR PARTNER in digital growt
+        <p className={`${classes["homepagesectionpartner__title"]} appear`}>
+          YOUR PARTNER in digital growth
         </p>
         <div className={classes["homepagesectionpartner__content"]}>
           <div className={classes["homepagesectionpartner__content__colleft"]}>
@@ -150,7 +149,7 @@ export default function PartnerSection({ NavButton }) {
           </div>
         </div>
         <div className={classes["homepagesectionpartner__below"]}>
-          <div className={classes["homepagesectionpartner__below__text"]}>
+          <div className={`${classes["homepagesectionpartner__below__text"]} appear`}>
             We offer advanced digital solutions tailored to your needs.
           </div>
           <a className={classes["homepagesectionpartner__below__button"]}>

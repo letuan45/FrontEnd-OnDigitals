@@ -23,7 +23,7 @@ export const getDataForNewAndInsightsSection = async () => {
     const data = await request(endpoint, query);
     return data.posts.nodes;
   } catch (error) {
-    console.error('Error fetching data:sadadas', error);
+    console.error('Error fetching data', error);
     return []; 
   }
 };

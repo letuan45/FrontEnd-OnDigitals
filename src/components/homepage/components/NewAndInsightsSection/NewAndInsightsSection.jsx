@@ -6,15 +6,12 @@ import "swiper/css/pagination";
 import {
   Navigation,
   Pagination,
-  Mousewheel,
-  Keyboard,
   Autoplay,
   FreeMode,
 } from "swiper/modules";
 import Image from "next/image";
 import classes from "./NewAndInsightsSection.module.scss";
 import NewPostCard from "./NewPostCard";
-
 export default function NewAndInsightsSection({ data }) {
   const listPosts = data.allPosts;
   return (
@@ -22,10 +19,10 @@ export default function NewAndInsightsSection({ data }) {
       <section className={classes["section-new-insights"]}>
         <div className="container">
           <div className={classes["section-new-insights__title"]}>
-            <p className={classes["section-new-insights__title--left"]}>
+            <p className={`${classes["section-new-insights__title--left"]} appear`}>
               News & Insights
             </p>
-            <p className={classes["section-new-insights__title--right"]}>
+            <p className={`${classes["section-new-insights__title--right"]} appear`}>
               Get update with latest Digital news and insights
             </p>
           </div>
@@ -36,11 +33,9 @@ export default function NewAndInsightsSection({ data }) {
               pagination={{
                 clickable: true,
               }}
-              mousewheel={true}
               freeMode={true}
-              keyboard={true}
               autoplay={{
-                delay: 250000,
+                delay: 2500000,
                 disableOnInteraction: false,
               }}
               breakpoints={{
@@ -60,8 +55,6 @@ export default function NewAndInsightsSection({ data }) {
               modules={[
                 Navigation,
                 Pagination,
-                Mousewheel,
-                Keyboard,
                 Autoplay,
                 FreeMode,
               ]}

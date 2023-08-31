@@ -3,9 +3,13 @@ import classes from "./NewAndInsightsSection.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { Maven_Pro } from "next/font/google";
+import { format, parseISO } from "date-fns";
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 export default function NewPostCard(data) {
   const post = data.data;
+  const isoDate = post.date;
+  const parsedDate = parseISO(isoDate);
+  const formattedDate = format(parsedDate, "dd/MM/yyyy");
   return (
     <>
       <Link href={post.link}>
@@ -38,9 +42,10 @@ export default function NewPostCard(data) {
                   className="fa-regular fa-calendar"
                   style={{ marginRight: "5px" }}
                 ></i>
-                1/1/2012
+               {formattedDate}
               </p>
               <p
+                style={{ fontFamily: MavenPro.style.fontFamily }}
                 className={
                   classes["card-news-insights__content__dayView--views"]
                 }
@@ -49,7 +54,7 @@ export default function NewPostCard(data) {
                   className="fa-regular fa-eye"
                   style={{ marginRight: "5px" }}
                 ></i>
-                500
+                <span> 500</span>
               </p>
             </div>
 

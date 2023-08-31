@@ -1,8 +1,8 @@
 import React from "react";
 import { useFormik } from "formik";
 import classes from "./ContactSection.module.scss";
-import MesageTextarea from "@/components/ui/Logo/Input/MesageTextarea";
-import Input from "@/components/ui/Logo/Input/Input";
+import MesageTextarea from "@/components/ui/Input/MesageTextarea";
+import Input from "@/components/ui/Input/Input";
 import { validationSchema } from "../../../../until/validationForm";
 import Image from "next/image";
 import Button from "@/components/ui/Buttons/Button/Button";
