@@ -8,10 +8,9 @@ import ContactSection from "./components/ContactSection/ContactSection";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
-import { EffectFade, Mousewheel, Navigation } from "swiper/modules";
+import { EffectFade, Mousewheel } from "swiper/modules";
 import "swiper/css/effect-fade";
 import "swiper/css/mousewheel";
-import "swiper/css/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const HomePage = (allPosts) => {
@@ -66,11 +65,10 @@ const HomePage = (allPosts) => {
       <Swiper
         ref={swiperRef}
         onSlideChange={(swiper) => handleSlideChange(swiper)}
-        modules={[EffectFade, Mousewheel, Navigation]}
+        modules={[EffectFade, Mousewheel]}
         direction={"vertical"}
         effect="fade"
         allowTouchMove={false}
-        navigation={true}
         className="sectionSwiper"
         mousewheel={true}
         speed={1500}
@@ -88,7 +86,9 @@ const HomePage = (allPosts) => {
           <CaseStudySection />
         </SwiperSlide>
         <SwiperSlide>
-          <NewAndInsightsSection data={allPosts} />
+          <div>
+            <NewAndInsightsSection data={allPosts} />
+          </div>
         </SwiperSlide>
       </Swiper>
       <ContactSection />

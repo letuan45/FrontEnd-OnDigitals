@@ -5,12 +5,13 @@ import classes from "./PartnerSection.module.scss";
 import { Maven_Pro } from "next/font/google";
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 export default function PartnerSection() {
+ 
   const divImage = `${classes["homepagesectionpartner__content__image"]} ${classes["hvr-bounce-in"]}`;
   return (
     <section className={classes["homepagesectionpartner"]}>
       <div className="container">
-        <p className={classes["homepagesectionpartner__title"]}>
-          YOUR PARTNER in digital growt
+        <p className={`${classes["homepagesectionpartner__title"]} appear`}>
+          YOUR PARTNER in digital growth
         </p>
         <div className={classes["homepagesectionpartner__content"]}>
           <div className={classes["homepagesectionpartner__content__colleft"]}>
@@ -131,7 +132,7 @@ export default function PartnerSection() {
           </div>
         </div>
         <div className={classes["homepagesectionpartner__below"]}>
-          <div className={classes["homepagesectionpartner__below__text"]}>
+          <div className={`${classes["homepagesectionpartner__below__text"]} appear`}>
             We offer advanced digital solutions tailored to your needs.
           </div>
           <a className={classes["homepagesectionpartner__below__button"]}>

@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./styleForm.module.scss";
+import classes from "./styleForm.module.scss"
 import { Maven_Pro } from "next/font/google";
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 export default function MesageTextarea({
