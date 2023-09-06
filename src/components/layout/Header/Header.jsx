@@ -48,7 +48,6 @@ const Header = () => {
     const header = document.querySelector(".main-header-g");
     const bottomNav = document.querySelector(".bottom-nav");
     const handleScroll = () => {
-      if (setExpanseMenuIsOpen && !isOnMobile) return;
       const headerHeight = header.getBoundingClientRect().top;
       const headerScrollOffset = headerHeight + window.scrollY;
       const bottomNavHeight = bottomNav.getBoundingClientRect().top;
@@ -57,11 +56,14 @@ const Header = () => {
       // Second section sẽ là section cuối cùng đối với slider
       // và là section thứ 2 đối với mobile section
       const secondSection = document.querySelector(".service-section");
-      if (!secondSection) return;
+      const introSection = document.querySelector(".intro-section");
+      if (!secondSection || !introSection) return;
 
+      const introSectionTop = introSection.offsetTop;
+      const introSectionBottom = introSectionTop + introSection.offsetHeight;
       const secondSectionTop = secondSection.offsetTop;
       const secondSectionBottom =
-        secondSection.offsetTop + secondSection.offsetHeight - headerHeight;
+        secondSectionTop + secondSection.offsetHeight - headerHeight;
 
       if (
         headerScrollOffset >= secondSectionTop &&
@@ -70,6 +72,20 @@ const Header = () => {
         setIsDark(true);
       } else {
         setIsDark(false);
+      }
+
+      if (
+        headerScrollOffset >= introSectionTop &&
+        headerScrollOffset <= introSectionBottom
+      ) {
+        setIsDark(false);
+      }
+
+      if (
+        bottomNavScrollOffset >= introSectionTop &&
+        bottomNavScrollOffset <= introSectionBottom
+      ) {
+        setBottomIsDark(false);
       }
 
       if (

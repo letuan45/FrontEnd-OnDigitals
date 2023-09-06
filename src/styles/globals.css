@@ -232,7 +232,7 @@ a {
 /* error contact form */
 #__next {
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .icon-contact-form-textarea {

@@ -98,3 +98,39 @@
     }
   }
 }
+
+@media (max-width: 360px) {
+  .wrapper {
+    .menu-list-wrapper {
+      .menu-list {
+        margin-top: 20px;
+        font-size: 38px;
+        font-weight: 700;
+        line-height: 40px;
+        &-item {
+          &__circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-left: 14px;
+            &.circle-0 {
+              background-color: #3d1766;
+            }
+            &.circle-1 {
+              background-color: #6f1ab6;
+            }
+            &.circle-2 {
+              background-color: #ff0032;
+            }
+            &.circle-3 {
+              background-color: #cd0404;
+            }
+            &.circle-4 {
+              background-color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
