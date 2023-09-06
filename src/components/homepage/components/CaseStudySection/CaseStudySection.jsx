@@ -62,7 +62,7 @@ const CaseStudySection = ({ NavButton }) => {
     <section className={`${classes["case-study"]} case-study-section`}>
       {!isOnMobile && <SectionHeader />}
       <div className="container">
-        <div className={classes["case-study-header"]}>
+        <div className={`${classes["case-study-header"]} appear-from-down`}>
           <h2 className={classes["case-study-header__heading"]}>Case Study</h2>
           <ButtonNoBorder
             href="#"
@@ -73,7 +73,7 @@ const CaseStudySection = ({ NavButton }) => {
           </ButtonNoBorder>
         </div>
       </div>
-      <div className="container-no-pd">
+      <div className="container-no-pd appear-from-down-slow-more">
         <CaseStudiesList items={DUMMY_CASE_STUDY} />
       </div>
       {NavButton && NavButton}

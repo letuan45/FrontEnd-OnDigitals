@@ -5,6 +5,7 @@ import classes from "./PartnerSection.module.scss";
 import { Maven_Pro } from "next/font/google";
 import SectionHeader from "@/components/ui/SectionHeader/SectionHeader";
 import { useEffect, useState } from "react";
+import ButtonNoBorder from "@/components/ui/Buttons/ButtonNoBorder/ButtonNoBorder";
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 export default function PartnerSection({ NavButton }) {
   const divImage = `${classes["homepagesectionpartner__content__image"]} ${classes["hvr-bounce-in"]}`;
@@ -30,7 +31,9 @@ export default function PartnerSection({ NavButton }) {
         <p className={`${classes["homepagesectionpartner__title"]} appear`}>
           YOUR PARTNER in digital growth
         </p>
-        <div className={`${classes["homepagesectionpartner__content"]} appear-slow`}>
+        <div
+          className={`${classes["homepagesectionpartner__content"]} appear-slow`}
+        >
           <div className={classes["homepagesectionpartner__content__colleft"]}>
             <div className={classes["homepagesectionpartner__content__item"]}>
               <p className={classes["homepagesectionpartner__content--number"]}>
@@ -148,13 +151,23 @@ export default function PartnerSection({ NavButton }) {
             </div>
           </div>
         </div>
-        <div className={`${classes["homepagesectionpartner__below"]} appear-slow-more`}>
+        <div
+          className={`${classes["homepagesectionpartner__below"]} appear-slow-more`}
+        >
           <div className={`${classes["homepagesectionpartner__below__text"]} `}>
             We offer advanced digital solutions tailored to your needs.
           </div>
-          <a className={classes["homepagesectionpartner__below__button"]}>
+          <ButtonNoBorder
+            href="#"
+            textSize="md"
+            color="white"
+            RightIcon={<FontAwesomeIcon icon={faArrowRight} color="white"/>}
+          >
+            See our process
+          </ButtonNoBorder>
+          {/* <a className={classes["homepagesectionpartner__below__button"]}>
             See our process <FontAwesomeIcon icon={faArrowRight} />
-          </a>
+          </a> */}
         </div>
       </div>
       {NavButton && NavButton}

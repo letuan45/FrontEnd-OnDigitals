@@ -214,16 +214,18 @@ const ServiceSection = ({ NavButton }) => {
       <div className="container">
         <div className={classes["service-grid"]}>
           <div className={classes["service-header"]}>
-            <p className={classes["service-header-title"]}>
+            <p
+              className={`${classes["service-header-title"]} appear-from-down`}
+            >
               We offer The best DIGITAL SERVICES
             </p>
-            <p className={classes["service-header-desc"]}>
+            <p
+              className={`${classes["service-header-desc"]} appear-from-down-slow`}
+            >
               For the persistent growth and creativity of ambitious brands
             </p>
-            <Link className={classes["service-header-navigator"]} href="#">
-              <p></p>
-            </Link>
             <ButtonNoBorder
+              className="appear-from-down-slow"
               href="#"
               RightIcon={
                 <TopRightArrow width={24} height={24} color="#131114" />

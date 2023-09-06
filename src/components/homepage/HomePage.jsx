@@ -23,18 +23,26 @@ const HomePage = (allPosts) => {
   const hideHeaderBtn = useBoundStore((state) => state.hideHeaderBtn);
   const showHeaderBtn = useBoundStore((state) => state.showHeaderBtn);
   const expanseMenuIsOpen = useBoundStore((state) => state.expanseMenuIsOpen);
+  const setHeaderCanNotChangeColor = useBoundStore(
+    (state) => state.setHeaderCanNotChangeColor
+  );
+  const setHeaderCanChangeColor = useBoundStore(
+    (state) => state.setHeaderCanChangeColor
+  );
   const contactFormRef = useRef(null);
 
   const scrollToContactForm = () => {
     if (contactFormRef.current) {
       contactFormRef.current.scrollIntoView({ behavior: "smooth" });
     }
+    setToLight();
   };
 
   const scrollToSlider = () => {
     if (swiperRef.current) {
       swiperRef.current.scrollIntoView({ behavior: "smooth" });
     }
+    setToDark();
   };
 
   useEffect(() => {
@@ -75,6 +83,11 @@ const HomePage = (allPosts) => {
       const swiperElement = swiperRef.current;
       const swiperObj = swiperElement.swiper;
       if (!swiperObj) return;
+      if (swiperObj.enabled) {
+        setHeaderCanNotChangeColor();
+      } else {
+        setHeaderCanChangeColor();
+      }
 
       const elementTop = swiperElement.getBoundingClientRect().top;
 

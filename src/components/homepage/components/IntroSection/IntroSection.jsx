@@ -10,8 +10,12 @@ const IntroSection = () => {
       <div className="container relative">
         <div className={classes["intro-layout"]}>
           <div className={classes["intro-layout-item"]}>
-            <p className={classes["intro-greeting"]}>Hello, We Are</p>
-            <div className={classes["intro-brand-img-container"]}>
+            <p className={`${classes["intro-greeting"]} appear`}>
+              Hello, We Are
+            </p>
+            <div
+              className={`${classes["intro-brand-img-container"]} appear-slow`}
+            >
               <Image
                 className={classes["intro-brand-img"]}
                 fill
@@ -21,14 +25,14 @@ const IntroSection = () => {
               />
             </div>
             <p
-              className={classes["intro-description"]}
+              className={`${classes["intro-description"]} appear-slow-more`}
               style={{ fontFamily: MavenPro.style.fontFamily }}
             >
               Thinking inside the box
             </p>
           </div>
           <div className={classes["intro-layout-item"]}>
-            <div className={classes["intro-layout-item-img"]}>
+            <div className={`${classes["intro-layout-item-img"]} appear-slow`}>
               <Image
                 src="/assets/images/partials/intro-bg.png"
                 fill

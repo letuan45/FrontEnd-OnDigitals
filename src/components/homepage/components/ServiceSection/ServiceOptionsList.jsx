@@ -4,7 +4,7 @@ import ServiceOptionItem from "./ServiceOptionItem";
 
 const ServiceOptionsList = ({ items, onChangeActiveItem }) => {
   return (
-    <ul className={classes["services"]}>
+    <ul className={`${classes["services"]} appear-from-down-slow`}>
       {items.map((item) => (
         <ServiceOptionItem
           item={item}

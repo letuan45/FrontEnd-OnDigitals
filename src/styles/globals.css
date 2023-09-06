@@ -297,6 +297,15 @@ a {
 .section-swiper .swiper-slide-next .appear {
   animation: backOutDowAnimation 1.5s;
 }
+.section-swiper .swiper-slide-active .appear-from-down {
+  animation: backInUpAnimation 1s;
+}
+.section-swiper .swiper-slide-prev .appear-from-down {
+  animation: backOutUpAnimation 1.5s;
+}
+.section-swiper .swiper-slide-next .appear-from-down {
+  animation: backOutDowAnimation 1.5s;
+}
 /* delay ít */
 .section-swiper .swiper-slide-active .appear-slow {
   animation: backInDownAnimation 2s;
@@ -305,6 +314,15 @@ a {
   animation: backOutUpAnimation 1.5s;
 }
 .section-swiper .swiper-slide-next .appear-slow {
+  animation: backOutDowAnimation 1.5s;
+}
+.section-swiper .swiper-slide-active .appear-from-down-slow {
+  animation: backInUpAnimation 2s;
+}
+.section-swiper .swiper-slide-prev .appear-from-down-slow {
+  animation: backOutUpAnimation 1.5s;
+}
+.section-swiper .swiper-slide-next .appear-from-down-slow {
   animation: backOutDowAnimation 1.5s;
 }
 /* delay nhiều hơn */
@@ -317,10 +335,19 @@ a {
 .section-swiper .swiper-slide-next .appear-slow-more{
   animation: backOutDowAnimation 1.5s;
 }
+.section-swiper .swiper-slide-active .appear-from-down-slow-more {
+  animation: backInUpAnimation 2.5s;
+}
+.section-swiper .swiper-slide-prev .appear-from-down-slow-more {
+  animation: backOutUpAnimation 1.5s;
+}
+.section-swiper .swiper-slide-next .appear-from-down-slow-more {
+  animation: backOutDowAnimation 1.5s;
+}
 @keyframes backInDownAnimation {
   0% {
     opacity: 0;
-    transform: translateY(-20%);
+    transform: translateY(-100px);
   }
   
   100% {
@@ -335,7 +362,7 @@ a {
   }
   100% {
     opacity: 0;
-    transform: translateY(-20%);
+    transform: translateY(-100px);
   }
 }
 @keyframes backOutDowAnimation {
@@ -346,7 +373,18 @@ a {
  
   100% {
     opacity: 0;
-    transform: translateY(20%);
+    transform: translateY(100px);
+  }
+}
+@keyframes backInUpAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0) ;
   }
 }
 /* hiệu ứng text khi chuyển slide */

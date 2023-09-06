@@ -21,6 +21,9 @@ const Header = () => {
   const headerIsDark = useBoundStore((state) => state.isDark);
   const headerBtnIsShown = useBoundStore((state) => state.headerBtnIsShown);
   const showHeaderBtn = useBoundStore((state) => state.showHeaderBtn);
+  const headerCanChangeColor = useBoundStore(
+    (state) => state.headerCanChangeColor
+  );
   const setExpanseMenuIsOpen = useBoundStore(
     (state) => state.setExpanseMenuIsOpen
   );
@@ -59,43 +62,44 @@ const Header = () => {
       const introSection = document.querySelector(".intro-section");
       if (!secondSection || !introSection) return;
 
-      const introSectionTop = introSection.offsetTop;
-      const introSectionBottom = introSectionTop + introSection.offsetHeight;
       const secondSectionTop = secondSection.offsetTop;
       const secondSectionBottom =
         secondSectionTop + secondSection.offsetHeight - headerHeight;
 
-      if (
-        headerScrollOffset >= secondSectionTop &&
-        headerScrollOffset <= secondSectionBottom
-      ) {
-        setIsDark(true);
-      } else {
-        setIsDark(false);
+      if (headerCanChangeColor) {
+        if (
+          headerScrollOffset >= secondSectionTop &&
+          headerScrollOffset <= secondSectionBottom
+        ) {
+          setIsDark(true);
+        } else {
+          setIsDark(false);
+        }
+
+        if (
+          bottomNavScrollOffset >= secondSectionTop &&
+          bottomNavScrollOffset <= secondSectionBottom
+        ) {
+          setBottomIsDark(true);
+        } else {
+          setBottomIsDark(false);
+        }
       }
 
-      if (
-        headerScrollOffset >= introSectionTop &&
-        headerScrollOffset <= introSectionBottom
-      ) {
-        setIsDark(false);
-      }
-
-      if (
-        bottomNavScrollOffset >= introSectionTop &&
-        bottomNavScrollOffset <= introSectionBottom
-      ) {
-        setBottomIsDark(false);
-      }
-
-      if (
-        bottomNavScrollOffset >= secondSectionTop &&
-        bottomNavScrollOffset <= secondSectionBottom
-      ) {
-        setBottomIsDark(true);
-      } else {
-        setBottomIsDark(false);
-      }
+      // if(!headerCanChangeColor) {
+      //   if (
+      //     headerScrollOffset >= introSectionTop &&
+      //     headerScrollOffset <= introSectionBottom
+      //   ) {
+      //     setIsDark(false);
+      //   }
+      //   if (
+      //     bottomNavScrollOffset >= introSectionTop &&
+      //     bottomNavScrollOffset <= introSectionBottom
+      //   ) {
+      //     setBottomIsDark(false);
+      //   }
+      // }
 
       // Khi ở mobile, tìm đến section insight và thay đổi thành dark
       const insightSection = document.querySelector(".insights-section");
@@ -140,7 +144,7 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isOnMobile]);
+  }, [isOnMobile, headerCanChangeColor]);
 
   useEffect(() => {
     const handleResize = () => {

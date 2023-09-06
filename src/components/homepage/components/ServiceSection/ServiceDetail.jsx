@@ -23,7 +23,9 @@ const ServiceDetail = ({ context }) => {
   }, [context.content]);
 
   return (
-    <div className={`${classes["service-details"]} ${colorClass}`}>
+    <div
+      className={`${classes["service-details"]} ${colorClass} appear-from-down-slow`}
+    >
       <div className={classes["service-details-header"]}></div>
       <div className={classes["service-details-content"]} ref={contentRef}>
         <div className={classes["service-details-content-wrapper"]}>
