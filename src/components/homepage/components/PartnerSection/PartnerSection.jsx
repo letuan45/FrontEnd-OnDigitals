@@ -30,7 +30,7 @@ export default function PartnerSection({ NavButton }) {
         <p className={`${classes["homepagesectionpartner__title"]} appear`}>
           YOUR PARTNER in digital growth
         </p>
-        <div className={classes["homepagesectionpartner__content"]}>
+        <div className={`${classes["homepagesectionpartner__content"]} appear-slow`}>
           <div className={classes["homepagesectionpartner__content__colleft"]}>
             <div className={classes["homepagesectionpartner__content__item"]}>
               <p className={classes["homepagesectionpartner__content--number"]}>
@@ -148,8 +148,8 @@ export default function PartnerSection({ NavButton }) {
             </div>
           </div>
         </div>
-        <div className={classes["homepagesectionpartner__below"]}>
-          <div className={`${classes["homepagesectionpartner__below__text"]} appear`}>
+        <div className={`${classes["homepagesectionpartner__below"]} appear-slow-more`}>
+          <div className={`${classes["homepagesectionpartner__below__text"]} `}>
             We offer advanced digital solutions tailored to your needs.
           </div>
           <a className={classes["homepagesectionpartner__below__button"]}>

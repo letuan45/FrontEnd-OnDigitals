@@ -15,19 +15,17 @@ export default function NewAndInsightsSection({ data, NavButton }) {
         className={`${classes["section-new-insights"]} insights-section`}
       >
         <div className="container">
-          <div className={classes["section-new-insights__title"]}>
-            <p
-              className={`${classes["section-new-insights__title--left"]} appear`}
-            >
+          <div className={`${classes["section-new-insights__title"]} appear`}>
+            <p className={`${classes["section-new-insights__title--left"]}`}>
               News & Insights
             </p>
-            <p
-              className={`${classes["section-new-insights__title--right"]} appear`}
-            >
+            <p className={`${classes["section-new-insights__title--right"]}`}>
               Get update with latest Digital news and insights
             </p>
           </div>
-          <div className={classes["section-new-insights__content"]}>
+          <div
+            className={`${classes["section-new-insights__content"]} appear-slow `}
+          >
             <Swiper
               cssMode={true}
               navigation={true}
@@ -54,7 +52,7 @@ export default function NewAndInsightsSection({ data, NavButton }) {
                 },
               }}
               modules={[Navigation, Pagination, Autoplay, FreeMode]}
-              className="news-insights-swiper"
+              className="news-insights-swiper "
             >
               {listPosts.map((post) => (
                 <SwiperSlide key={post.id}>
@@ -62,7 +60,7 @@ export default function NewAndInsightsSection({ data, NavButton }) {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className={classes["button-discover-more"]}>
+            <div className={`${classes["button-discover-more"]}`}>
               <a>
                 Discover more
                 <svg

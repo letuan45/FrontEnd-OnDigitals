@@ -159,7 +159,7 @@ a {
 }
 .news-insights-swiper .swiper-slide {
   padding: 50px;
-  transition: all 0.5s;
+  transition: all 0.5s !important;
 }
 .news-insights-swiper
   .swiper-wrapper
@@ -262,7 +262,7 @@ a {
   height: 0;
 }
 
- .section-swiper.swiper {
+.section-swiper.swiper {
   width: 100%;
   height: 100vh;
 }
@@ -287,57 +287,66 @@ a {
   display: none;
 }
 
-
 /* hiệu ứng text khi chuyển slide */
-.sectionSwiper .swiper-slide-active .appear {
-  animation: 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s both backInDownAnimation;
+.section-swiper .swiper-slide-active .appear {
+  animation: backInDownAnimation 1s;
 }
-.sectionSwiper .swiper-slide-prev .appear {
+.section-swiper .swiper-slide-prev .appear {
   animation: backOutUpAnimation 1.5s;
 }
-.sectionSwiper .swiper-slide-next .appear {
+.section-swiper .swiper-slide-next .appear {
+  animation: backOutDowAnimation 1.5s;
+}
+/* delay ít */
+.section-swiper .swiper-slide-active .appear-slow {
+  animation: backInDownAnimation 2s;
+}
+.section-swiper .swiper-slide-prev .appear-slow {
+  animation: backOutUpAnimation 1.5s;
+}
+.section-swiper .swiper-slide-next .appear-slow {
+  animation: backOutDowAnimation 1.5s;
+}
+/* delay nhiều hơn */
+.section-swiper .swiper-slide-active .appear-slow-more {
+  animation: backInDownAnimation 2.5s;
+}
+.section-swiper .swiper-slide-prev .appear-slow-more {
+  animation: backOutUpAnimation 1.5s;
+}
+.section-swiper .swiper-slide-next .appear-slow-more{
   animation: backOutDowAnimation 1.5s;
 }
 @keyframes backInDownAnimation {
   0% {
     opacity: 0;
-    transform: translate3d(0, -100%, 0) scaleY(3);
+    transform: translateY(-20%);
   }
-  60% {
-    opacity: 1;
-    transform: translate3d(0, 25px, 0) scaleY(0.9);
-  }
+  
   100% {
-    transform: translate3d(0, 0, 0) scaleY(1);
+    opacity: 1;
+    transform: translateY(0) ;
   }
 }
 @keyframes backOutUpAnimation {
   0% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  50% {
     opacity: 1;
-    transform: translateY(-20%);
+    transform: translateY(0);
   }
   100% {
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translateY(-20%);
   }
 }
 @keyframes backOutDowAnimation {
   0% {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(0);
   }
-  50% {
-    opacity: 1;
-    transform: translateY(20%);
-  }
+ 
   100% {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(20%);
   }
 }
 /* hiệu ứng text khi chuyển slide */
-
