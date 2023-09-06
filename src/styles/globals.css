@@ -151,6 +151,9 @@ a {
   height: 16px;
   background-color: #766b7f;
 }
+.news-insights-swiper .swiper-pagination{
+  top: 96% !important;
+}
 .news-insights-swiper
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
   width: 16px;
