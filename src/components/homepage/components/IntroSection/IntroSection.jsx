@@ -6,7 +6,7 @@ const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 
 const IntroSection = () => {
   return (
-    <section className={classes.intro}>
+    <section className={`${classes.intro} intro-section`}>
       <div className="container relative">
         <div className={classes["intro-layout"]}>
           <div className={classes["intro-layout-item"]}>

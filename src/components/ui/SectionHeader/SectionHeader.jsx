@@ -21,7 +21,7 @@ const SectionHeader = ({ isDark }) => {
         isActive={menuIsOpen}
         menu={menuItems}
       />
-      <header className={classes["main-header"]}>
+      <header className={`${classes["main-header"]} section-header`}>
         <div className="container--big">
           <div className={classes["header-wrapper"]}>
             <Logo isVisible={!menuIsOpen} isDark={isDark} />

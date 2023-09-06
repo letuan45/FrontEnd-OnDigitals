@@ -7,39 +7,99 @@ import BottomNavigator from "../BottomNavigator/BottomNavigator";
 import Link from "next/link";
 import ExpanseMenu from "@/components/ui/ExpanseMenu/ExpanseMenu";
 import { overlayOptions, menuItems } from "@/configurations/menuData";
+import { useBoundStore } from "../../../store/useBoundStore";
 
 const Header = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [bottomIsDark, setBottomIsDark] = useState(false);
+  const [isOnMobile, setIsOnMobile] = useState(false);
   const menuButtonClasses = `${classes["header-menu-btn"]} ${
     menuIsOpen ? classes["active"] : ""
   }`;
+  const [bottomNavIsShown, setBottomNavIsShown] = useState(true);
+  const headerIsDark = useBoundStore((state) => state.isDark);
+  const headerBtnIsShown = useBoundStore((state) => state.headerBtnIsShown);
+  const showHeaderBtn = useBoundStore((state) => state.showHeaderBtn);
 
   const toggleMenuButtonHandler = () => {
     setMenuIsOpen((oldState) => !oldState);
   };
 
   useEffect(() => {
-    const handleScroll = (e) => {
-      const header = document.querySelector(".main-header-g");
+    setIsDark(headerIsDark);
+    setBottomIsDark(headerIsDark);
+  }, [headerIsDark]);
+
+  useEffect(() => {
+    const header = document.querySelector(".main-header-g");
+    const bottomNav = document.querySelector(".bottom-nav");
+    const handleScroll = () => {
       const headerHeight = header.getBoundingClientRect().top;
       const headerScrollOffset = headerHeight + window.scrollY;
+      const bottomNavHeight = bottomNav.getBoundingClientRect().top;
+      const bottomNavScrollOffset = bottomNavHeight + window.scrollY;
+      // Khi scroll trên PC - ẩn section header
+      // Second section sẽ là section cuối cùng đối với slider
+      // và là section thứ 2 đối với mobile section
+      const secondSection = document.querySelector(".service-section");
+      if (!secondSection) return;
 
-      const serviceSection = document.querySelector(".service-section");
-      if (!serviceSection) return;
-
-      const serviceSectionTop = serviceSection.offsetTop;
-      const serviceSectionBottom =
-        serviceSection.offsetTop + serviceSection.offsetHeight - headerHeight;
-
+      const secondSectionTop = secondSection.offsetTop;
+      const secondSectionBottom =
+        secondSection.offsetTop + secondSection.offsetHeight - headerHeight;
 
       if (
-        headerScrollOffset >= serviceSectionTop &&
-        headerScrollOffset <= serviceSectionBottom
+        headerScrollOffset >= secondSectionTop &&
+        headerScrollOffset <= secondSectionBottom
       ) {
         setIsDark(true);
       } else {
         setIsDark(false);
+      }
+
+      if (
+        bottomNavScrollOffset >= secondSectionTop &&
+        bottomNavScrollOffset <= secondSectionBottom
+      ) {
+        setBottomIsDark(true);
+      } else {
+        setBottomIsDark(false);
+      }
+
+      // Khi ở mobile, tìm đến section insight và thay đổi thành dark
+      const insightSection = document.querySelector(".insights-section");
+      const insightSectionTop = insightSection.offsetTop;
+      const insightSectionBottom =
+        insightSection.offsetTop + insightSection.offsetHeight;
+      if (isOnMobile) {
+        if (!insightSection) return;
+
+        if (
+          headerScrollOffset >= insightSectionTop &&
+          headerScrollOffset <= insightSectionBottom
+        ) {
+          setIsDark(true);
+        }
+        if (
+          bottomNavScrollOffset >= insightSectionTop &&
+          bottomNavScrollOffset <= insightSectionBottom
+        ) {
+          setBottomIsDark(true);
+        }
+      }
+      if (!isOnMobile) {
+        if (bottomNavScrollOffset > secondSectionBottom) {
+          setBottomNavIsShown(false);
+        } else {
+          setBottomNavIsShown(true);
+        }
+      } else {
+        if (bottomNavScrollOffset > insightSectionBottom) {
+          setBottomNavIsShown(false);
+        } else {
+          setBottomNavIsShown(true);
+        }
       }
     };
 
@@ -49,6 +109,23 @@ const Header = () => {
     // Loại bỏ lắng nghe khi component unmounts
     return () => {
       window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isOnMobile]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsOnMobile(window.innerWidth < 1280);
+      const header = document.querySelector(".main-header-g");
+      setIsDark(false);
+      showHeaderBtn();
+      header.classList.remove("hide");
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -66,12 +143,18 @@ const Header = () => {
       >
         <div className="container--big">
           <div className={classes["header-wrapper"]}>
-            <Logo isVisible={!menuIsOpen} isDark={isDark}/>
-            <div className={classes["header-wrapper-fn"]}>
+            <Logo isVisible={!menuIsOpen} isDark={isDark} />
+            <div
+              className={`${classes["header-wrapper-fn"]} ${
+                isDark ? classes["dark-header"] : ""
+              }`}
+            >
               <Link
                 href="#"
                 className={`${classes["header-btn"]} ${
-                  menuIsOpen ? classes["header-btn--hidden"] : ""
+                  menuIsOpen || !headerBtnIsShown
+                    ? classes["header-btn--hidden"]
+                    : ""
                 }`}
               >
                 <div className={classes["header-btn__wrapper"]}>
@@ -82,7 +165,9 @@ const Header = () => {
               <Link
                 href="#"
                 className={`${classes["header-btn"]} ${
-                  menuIsOpen ? classes["header-btn--hidden"] : ""
+                  menuIsOpen || !headerBtnIsShown
+                    ? classes["header-btn--hidden"]
+                    : ""
                 }`}
               >
                 <div className={classes["header-btn__wrapper"]}>
@@ -95,14 +180,14 @@ const Header = () => {
                   >
                     <path
                       d="M22 2L11 13"
-                      stroke="white"
+                      stroke={isDark ? "black" : "white"}
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
                     <path
                       d="M22 2L15 22L11 13L2 9L22 2Z"
-                      stroke="white"
+                      stroke={isDark ? "black" : "white"}
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -121,7 +206,10 @@ const Header = () => {
               </button>
             </div>
           </div>
-          <BottomNavigator isVisible={!menuIsOpen} />
+          <BottomNavigator
+            isVisible={!menuIsOpen && bottomNavIsShown && headerBtnIsShown}
+            isDark={bottomIsDark}
+          />
         </div>
       </header>
     </div>

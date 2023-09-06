@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import classes from "./ContactSection.module.scss";
 import MesageTextarea from "@/components/ui/Input/MesageTextarea";
@@ -15,7 +15,24 @@ import Note from "@/components/ui/Note/Note";
 import { Maven_Pro } from "next/font/google";
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 
-export default function ContactSection() {
+const ContactSection = React.forwardRef((props, ref) => {
+  const { NavButton } = props;
+  const [isOnMobile, setIsOnMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsOnMobile(window.innerWidth < 1280);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -29,8 +46,9 @@ export default function ContactSection() {
     console.log(values);
     formik.resetForm();
   }
+
   return (
-    <section className={classes["section-contact-form"]}>
+    <section className={classes["section-contact-form"]} ref={ref}>
       <div className={`${classes["contact-section"]} container`}>
         <div className={classes["contact-section__columLeft"]}>
           <form
@@ -157,6 +175,9 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
+      {!isOnMobile && NavButton && NavButton}
     </section>
   );
-}
+});
+
+export default ContactSection;

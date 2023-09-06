@@ -13,10 +13,16 @@ import "swiper/css/effect-fade";
 import "swiper/css/mousewheel";
 import { useEffect, useRef, useState } from "react";
 import SectionNavButtons from "../ui/Buttons/SectionNavButtons/SectionNavButtons";
+import { useBoundStore } from "@/store/useBoundStore";
 
 const HomePage = (allPosts) => {
   const [isShowSectionSlide, setIsShowSectionSlide] = useState(true);
   const swiperRef = useRef(null);
+  const setToDark = useBoundStore((state) => state.setToDark);
+  const setToLight = useBoundStore((state) => state.setToLight);
+  const hideHeaderBtn = useBoundStore((state) => state.hideHeaderBtn);
+  const showHeaderBtn = useBoundStore((state) => state.showHeaderBtn);
+  const contactFormRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -79,12 +85,35 @@ const HomePage = (allPosts) => {
 
   const handleSlideChange = (swiper) => {
     const header = document.querySelector(".main-header-g");
+    if (swiper.isEnd) {
+      setToDark();
+    }
+    if (swiper.activeIndex === 0) {
+      setToLight();
+      if (isShowSectionSlide) {
+        showHeaderBtn();
+      }
+    } else if (isShowSectionSlide) {
+      hideHeaderBtn();
+    }
     if (swiper.activeIndex > 0 && swiper.activeIndex <= 3) {
       header.classList.add("hide");
     } else {
       header.classList.remove("hide");
     }
   };
+
+  const scrollToContactForm = () => {
+    if (contactFormRef.current) {
+      contactFormRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToSlider = () => {
+    if(swiperRef.current) {
+      swiperRef.current.scrollIntoView({ behavior: "smooth"})
+    }
+  }
 
   return (
     <>
@@ -137,7 +166,16 @@ const HomePage = (allPosts) => {
             />
           </SwiperSlide>
           <SwiperSlide>
-            <NewAndInsightsSection data={allPosts} />
+            <NewAndInsightsSection
+              data={allPosts}
+              NavButton={
+                <SectionNavButtons
+                  color="black"
+                  isDown
+                  onClick={scrollToContactForm}
+                />
+              }
+            />
           </SwiperSlide>
         </Swiper>
       )}
@@ -150,8 +188,17 @@ const HomePage = (allPosts) => {
           <NewAndInsightsSection data={allPosts} />
         </>
       )}
-
-      <ContactSection />
+      <ContactSection
+        ref={contactFormRef}
+        NavButton={
+          <SectionNavButtons
+            color="white"
+            isUp
+            onClick={scrollToSlider}
+            noLeftButton
+          />
+        }
+      />
     </>
   );
 };

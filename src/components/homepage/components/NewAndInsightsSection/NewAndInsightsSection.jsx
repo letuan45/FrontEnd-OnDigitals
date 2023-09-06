@@ -1,28 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import {
-  Navigation,
-  Pagination,
-  Autoplay,
-  FreeMode,
-} from "swiper/modules";
-import Image from "next/image";
+import { Navigation, Pagination, Autoplay, FreeMode } from "swiper/modules";
 import classes from "./NewAndInsightsSection.module.scss";
 import NewPostCard from "./NewPostCard";
-export default function NewAndInsightsSection({ data }) {
+export default function NewAndInsightsSection({ data, NavButton }) {
   const listPosts = data.allPosts;
+
   return (
     <>
-      <section className={classes["section-new-insights"]}>
+      <section
+        className={`${classes["section-new-insights"]} insights-section`}
+      >
         <div className="container">
           <div className={classes["section-new-insights__title"]}>
-            <p className={`${classes["section-new-insights__title--left"]} appear`}>
+            <p
+              className={`${classes["section-new-insights__title--left"]} appear`}
+            >
               News & Insights
             </p>
-            <p className={`${classes["section-new-insights__title--right"]} appear`}>
+            <p
+              className={`${classes["section-new-insights__title--right"]} appear`}
+            >
               Get update with latest Digital news and insights
             </p>
           </div>
@@ -52,12 +53,7 @@ export default function NewAndInsightsSection({ data }) {
                   spaceBetween: 0,
                 },
               }}
-              modules={[
-                Navigation,
-                Pagination,
-                Autoplay,
-                FreeMode,
-              ]}
+              modules={[Navigation, Pagination, Autoplay, FreeMode]}
               className="news-insights-swiper"
             >
               {listPosts.map((post) => (
@@ -95,6 +91,7 @@ export default function NewAndInsightsSection({ data }) {
             </div>
           </div>
         </div>
+        {NavButton && NavButton}
       </section>
     </>
   );
