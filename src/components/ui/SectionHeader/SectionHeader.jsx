@@ -3,15 +3,25 @@ import ExpanseMenu from "../ExpanseMenu/ExpanseMenu";
 import { overlayOptions, menuItems } from "@/configurations/menuData";
 import classes from "./SectionHeader.module.scss";
 import Logo from "../Logo/Logo";
+import { useBoundStore } from "@/store/useBoundStore";
 
 const SectionHeader = ({ isDark }) => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const menuButtonClasses = `${classes["header-menu-btn"]} ${
     menuIsOpen ? classes["active"] : ""
   }`;
+  const setExpanseMenuIsOpen = useBoundStore(
+    (state) => state.setExpanseMenuIsOpen
+  );
 
   const toggleMenuButtonHandler = () => {
-    setMenuIsOpen((oldState) => !oldState);
+    if (menuIsOpen) {
+      setExpanseMenuIsOpen(false);
+      setMenuIsOpen(false);
+    } else {
+      setExpanseMenuIsOpen(true);
+      setMenuIsOpen(true);
+    }
   };
 
   return (

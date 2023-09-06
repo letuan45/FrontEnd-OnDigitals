@@ -1,5 +1,7 @@
+import React from "react";
 import Link from "next/link";
 import classes from "./ExpanseMenu.module.scss";
+import { useEffect } from "react";
 
 const ExpanseMenu = ({ options, isActive, menu }) => {
   const delays = options.map((item) => item.delay);

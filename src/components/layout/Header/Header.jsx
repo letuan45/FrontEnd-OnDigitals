@@ -21,9 +21,22 @@ const Header = () => {
   const headerIsDark = useBoundStore((state) => state.isDark);
   const headerBtnIsShown = useBoundStore((state) => state.headerBtnIsShown);
   const showHeaderBtn = useBoundStore((state) => state.showHeaderBtn);
+  const setExpanseMenuIsOpen = useBoundStore(
+    (state) => state.setExpanseMenuIsOpen
+  );
 
   const toggleMenuButtonHandler = () => {
-    setMenuIsOpen((oldState) => !oldState);
+    if (isOnMobile) {
+      setMenuIsOpen((oldState) => !oldState);
+    } else {
+      if (menuIsOpen) {
+        setExpanseMenuIsOpen(false);
+        setMenuIsOpen(false);
+      } else {
+        setExpanseMenuIsOpen(true);
+        setMenuIsOpen(true);
+      }
+    }
   };
 
   useEffect(() => {
@@ -35,6 +48,7 @@ const Header = () => {
     const header = document.querySelector(".main-header-g");
     const bottomNav = document.querySelector(".bottom-nav");
     const handleScroll = () => {
+      if (setExpanseMenuIsOpen) return;
       const headerHeight = header.getBoundingClientRect().top;
       const headerScrollOffset = headerHeight + window.scrollY;
       const bottomNavHeight = bottomNav.getBoundingClientRect().top;
