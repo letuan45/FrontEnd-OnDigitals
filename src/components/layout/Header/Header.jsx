@@ -48,7 +48,7 @@ const Header = () => {
     const header = document.querySelector(".main-header-g");
     const bottomNav = document.querySelector(".bottom-nav");
     const handleScroll = () => {
-      if (setExpanseMenuIsOpen) return;
+      if (setExpanseMenuIsOpen && !isOnMobile) return;
       const headerHeight = header.getBoundingClientRect().top;
       const headerScrollOffset = headerHeight + window.scrollY;
       const bottomNavHeight = bottomNav.getBoundingClientRect().top;
