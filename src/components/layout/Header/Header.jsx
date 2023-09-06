@@ -21,9 +21,22 @@ const Header = () => {
   const headerIsDark = useBoundStore((state) => state.isDark);
   const headerBtnIsShown = useBoundStore((state) => state.headerBtnIsShown);
   const showHeaderBtn = useBoundStore((state) => state.showHeaderBtn);
+  const setExpanseMenuIsOpen = useBoundStore(
+    (state) => state.setExpanseMenuIsOpen
+  );
 
   const toggleMenuButtonHandler = () => {
-    setMenuIsOpen((oldState) => !oldState);
+    if (isOnMobile) {
+      setMenuIsOpen((oldState) => !oldState);
+    } else {
+      if (menuIsOpen) {
+        setExpanseMenuIsOpen(false);
+        setMenuIsOpen(false);
+      } else {
+        setExpanseMenuIsOpen(true);
+        setMenuIsOpen(true);
+      }
+    }
   };
 
   useEffect(() => {
@@ -43,11 +56,14 @@ const Header = () => {
       // Second section sẽ là section cuối cùng đối với slider
       // và là section thứ 2 đối với mobile section
       const secondSection = document.querySelector(".service-section");
-      if (!secondSection) return;
+      const introSection = document.querySelector(".intro-section");
+      if (!secondSection || !introSection) return;
 
+      const introSectionTop = introSection.offsetTop;
+      const introSectionBottom = introSectionTop + introSection.offsetHeight;
       const secondSectionTop = secondSection.offsetTop;
       const secondSectionBottom =
-        secondSection.offsetTop + secondSection.offsetHeight - headerHeight;
+        secondSectionTop + secondSection.offsetHeight - headerHeight;
 
       if (
         headerScrollOffset >= secondSectionTop &&
@@ -56,6 +72,20 @@ const Header = () => {
         setIsDark(true);
       } else {
         setIsDark(false);
+      }
+
+      if (
+        headerScrollOffset >= introSectionTop &&
+        headerScrollOffset <= introSectionBottom
+      ) {
+        setIsDark(false);
+      }
+
+      if (
+        bottomNavScrollOffset >= introSectionTop &&
+        bottomNavScrollOffset <= introSectionBottom
+      ) {
+        setBottomIsDark(false);
       }
 
       if (

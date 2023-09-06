@@ -22,7 +22,33 @@ const HomePage = (allPosts) => {
   const setToLight = useBoundStore((state) => state.setToLight);
   const hideHeaderBtn = useBoundStore((state) => state.hideHeaderBtn);
   const showHeaderBtn = useBoundStore((state) => state.showHeaderBtn);
+  const expanseMenuIsOpen = useBoundStore((state) => state.expanseMenuIsOpen);
   const contactFormRef = useRef(null);
+
+  const scrollToContactForm = () => {
+    if (contactFormRef.current) {
+      contactFormRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToSlider = () => {
+    if (swiperRef.current) {
+      swiperRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  useEffect(() => {
+    const swiperElement = swiperRef.current;
+    const swiperObj = swiperElement.swiper;
+    if (!swiperObj) return;
+    if (expanseMenuIsOpen) {
+      swiperObj.allowSlideNext = false;
+      swiperObj.allowSlidePrev = false;
+    } else {
+      swiperObj.allowSlideNext = true;
+      swiperObj.allowSlidePrev = true;
+    }
+  }, [expanseMenuIsOpen]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -49,6 +75,7 @@ const HomePage = (allPosts) => {
       const swiperElement = swiperRef.current;
       const swiperObj = swiperElement.swiper;
       if (!swiperObj) return;
+
       const elementTop = swiperElement.getBoundingClientRect().top;
 
       if (swiperObj.activeIndex !== 4 && swiperObj.activeIndex !== 0) {
@@ -77,7 +104,7 @@ const HomePage = (allPosts) => {
     return () => {
       window.removeEventListener("wheel", handleScrollWheel);
     };
-  }, []);
+  }, [expanseMenuIsOpen]);
 
   const nextSlideHandler = () => {
     swiperRef.current.swiper.slideNext();
@@ -102,18 +129,6 @@ const HomePage = (allPosts) => {
       header.classList.remove("hide");
     }
   };
-
-  const scrollToContactForm = () => {
-    if (contactFormRef.current) {
-      contactFormRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const scrollToSlider = () => {
-    if(swiperRef.current) {
-      swiperRef.current.scrollIntoView({ behavior: "smooth"})
-    }
-  }
 
   return (
     <>
