@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/Icons/ListIcon";
 import Note from "@/components/ui/Note/Note";
 import { Maven_Pro } from "next/font/google";
-import ButtonSearch from "@/components/ui/Buttons/ButtonsSearch/ButtonSearch";
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 
 const ContactSection = React.forwardRef((props, ref) => {
@@ -173,7 +172,6 @@ const ContactSection = React.forwardRef((props, ref) => {
             <p>
               Tell us about your business challenge and let's discuss together.
             </p>
-            <ButtonSearch />
           </div>
         </div>
       </div>

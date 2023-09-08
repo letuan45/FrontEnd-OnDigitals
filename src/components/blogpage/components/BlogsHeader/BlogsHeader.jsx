@@ -1,5 +1,6 @@
 import SelectOption from "@/components/ui/SelectOption/SelectOption";
 import classes from "./BlogsHeader.module.scss";
+import ButtonSearch from "@/components/ui/Buttons/ButtonsSearch/ButtonSearch";
 
 const DUMMY_CATEGORIES = [
   {
@@ -47,7 +48,7 @@ const DUMMY_SORT_BY = [
   },
 ];
 
-const BlogsHeader = () => {
+const BlogsHeader = ({ onSearch }) => {
   return (
     <div className={classes["blog-header"]}>
       <div className={classes["blog-header-left-item"]}>
@@ -60,8 +61,11 @@ const BlogsHeader = () => {
       </div>
       <div className={classes["blog-header-right-item"]}>
         <SelectOption options={DUMMY_CATEGORIES} label="category" />
-        <div style={{marginLeft: "20px"}}>
+        <div style={{ marginLeft: "20px" }}>
           <SelectOption options={DUMMY_SORT_BY} label="sort by" />
+        </div>
+        <div style={{ marginLeft: "20px" }}>
+          <ButtonSearch onSearch={onSearch} />
         </div>
       </div>
     </div>

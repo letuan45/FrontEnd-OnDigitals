@@ -23,7 +23,7 @@ const BlogCard = ({ isForSlider, data }) => {
         <div className={containerClasses}>
           <div className={classes["blog-card__image"]}>
             <Image
-              src={post.featuredImage.node.sourceUrl}
+              src={post.featuredImage?.node.sourceUrl}
               fill
               alt={post.title}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
