@@ -1,4 +1,4 @@
-const ArrowRight = ({ width, height, color }) => {
+export const ArrowRight = ({ width, height, color }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@ const ArrowRight = ({ width, height, color }) => {
     </svg>
   );
 };
-const IconSuccess = ({ width, height, color }) => {
+export const IconSuccess = ({ width, height, color }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ const IconSuccess = ({ width, height, color }) => {
     </svg>
   );
 };
-const IconDanger = ({ width, height, color }) => {
+export const IconDanger = ({ width, height, color }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -121,6 +121,55 @@ export const UpNavIcon = ({ width, height, color }) => {
     </svg>
   );
 };
-export { ArrowRight, IconSuccess, IconDanger };
-
-
+export const SearchIcon = ({ width, height, color }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={`${width}`}
+      height={`${height}`}
+      viewBox={`0 0 ${width} ${height}`}
+      fill="none"
+    >
+      <path
+        d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M20.9999 21.0004L16.6499 16.6504"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+export const CancelIcon = ({ width, height, color }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={`${width}`}
+      height={`${height}`}
+      viewBox={`0 0 ${width} ${height}`}
+      fill="none"
+    >
+      <path
+        d="M18 6L6 18"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6 6L18 18"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
