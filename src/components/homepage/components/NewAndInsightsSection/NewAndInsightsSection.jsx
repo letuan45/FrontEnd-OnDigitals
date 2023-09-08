@@ -6,6 +6,8 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay, FreeMode } from "swiper/modules";
 import classes from "./NewAndInsightsSection.module.scss";
 import NewPostCard from "./NewPostCard";
+import BlogCard from "@/components/ui/BlogCard/BlogCard";
+import ButtonNoBorder from "@/components/ui/Buttons/ButtonNoBorder/ButtonNoBorder";
 export default function NewAndInsightsSection({ data, NavButton }) {
   const listPosts = data.allPosts;
 
@@ -56,36 +58,42 @@ export default function NewAndInsightsSection({ data, NavButton }) {
             >
               {listPosts.map((post) => (
                 <SwiperSlide key={post.id}>
-                  <NewPostCard data={post} />
+                  <BlogCard data={post} isForSlider />
+                  {/* <NewPostCard data={post} /> */}
                 </SwiperSlide>
               ))}
             </Swiper>
             <div className={`${classes["button-discover-more"]}`}>
-              <a>
+              <ButtonNoBorder
+                href="#"
+                textSize="md"
+                RightIcon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M7 17L17 7"
+                      stroke="#131114"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M7 7H17V17"
+                      stroke="#131114"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                }
+              >
                 Discover more
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <path
-                    d="M7 17L17 7"
-                    stroke="#131114"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M7 7H17V17"
-                    stroke="#131114"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
+              </ButtonNoBorder>
             </div>
           </div>
         </div>

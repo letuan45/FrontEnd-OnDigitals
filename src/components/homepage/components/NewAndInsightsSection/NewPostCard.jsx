@@ -5,8 +5,9 @@ import Link from "next/link";
 import { Maven_Pro } from "next/font/google";
 import { format, parseISO } from "date-fns";
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
-export default function NewPostCard(data) {
-  const post = data.data;
+
+export default function NewPostCard({data}) {
+  const post = data;
   const isoDate = post.date;
   const parsedDate = parseISO(isoDate);
   const formattedDate = format(parsedDate, "dd/MM/yyyy");
