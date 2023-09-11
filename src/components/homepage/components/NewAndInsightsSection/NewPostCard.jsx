@@ -30,7 +30,7 @@ export default function NewPostCard({data}) {
               <span
                 style={{ fontFamily: MavenPro.style.fontFamily }}
                 className={classes["card-news-insights__content--tag"]}
-              >
+              > 
                 SEO Tips
               </span>
               <p

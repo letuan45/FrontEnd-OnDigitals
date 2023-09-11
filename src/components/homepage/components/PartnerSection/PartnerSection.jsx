@@ -7,6 +7,7 @@ import SectionHeader from "@/components/ui/SectionHeader/SectionHeader";
 import { useEffect, useState } from "react";
 import ButtonNoBorder from "@/components/ui/Buttons/ButtonNoBorder/ButtonNoBorder";
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
+
 export default function PartnerSection({ NavButton }) {
   const divImage = `${classes["homepagesectionpartner__content__image"]} ${classes["hvr-bounce-in"]}`;
   const [isOnMobile, setIsOnMobile] = useState(false);
@@ -161,7 +162,7 @@ export default function PartnerSection({ NavButton }) {
             href="#"
             textSize="md"
             color="white"
-            RightIcon={<FontAwesomeIcon icon={faArrowRight} color="white"/>}
+            RightIcon={<FontAwesomeIcon icon={faArrowRight} color="white" />}
           >
             See our process
           </ButtonNoBorder>
