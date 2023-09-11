@@ -157,7 +157,7 @@ a {
   height: 16px;
   background-color: #766b7f;
 }
-.news-insights-swiper .swiper-pagination{
+.news-insights-swiper .swiper-pagination {
   top: 96% !important;
 }
 .news-insights-swiper
@@ -398,3 +398,19 @@ a {
   }
 }
 /* hiệu ứng text khi chuyển slide */
+
+/* Pagination */
+.custom-pagination button {
+  box-shadow: none !important;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 12.5px;
+  color: #4c4552;
+  @media (max-width: 576px) {
+    margin: 0 2px;
+  }
+}
+
+.custom-pagination ol li button {
+  border: solid 1px #4c4552;
+}

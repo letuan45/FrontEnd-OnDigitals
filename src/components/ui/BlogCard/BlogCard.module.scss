@@ -10,6 +10,16 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 30px -3px,
       rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   }
+  &-blog-page {
+    transition: all 0.3s;
+    height: 92%;
+    overflow: hidden;
+    &:hover {
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 30px -3px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+      height: 100%;
+    }
+  }
   &__button span {
     color: #131114;
     font-size: 16px;

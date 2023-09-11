@@ -103,6 +103,7 @@ const HomePage = (allPosts) => {
         wheelDirection === "down"
       ) {
         swiperObj.enabled = false;
+        setToDark();
         return;
       }
 
@@ -126,7 +127,12 @@ const HomePage = (allPosts) => {
   const handleSlideChange = (swiper) => {
     const header = document.querySelector(".main-header-g");
     if (swiper.isEnd) {
+      setHeaderCanChangeColor();
       setToDark();
+      console.log("set")
+    }
+    if (swiper.activeIndex === 3) {
+      setToLight();
     }
     if (swiper.activeIndex === 0) {
       setToLight();

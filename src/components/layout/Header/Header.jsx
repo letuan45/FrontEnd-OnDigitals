@@ -43,9 +43,18 @@ const Header = () => {
   };
 
   useEffect(() => {
-    setIsDark(headerIsDark);
-    setBottomIsDark(headerIsDark);
-  }, [headerIsDark]);
+    console.log(
+      "can change",
+      headerCanChangeColor,
+      "is dark",
+      headerIsDark
+    );
+
+    if (headerCanChangeColor) {
+      setIsDark(headerIsDark);
+      setBottomIsDark(headerIsDark);
+    }
+  }, [headerIsDark, headerCanChangeColor]);
 
   useEffect(() => {
     const header = document.querySelector(".main-header-g");
@@ -85,21 +94,6 @@ const Header = () => {
           setBottomIsDark(false);
         }
       }
-
-      // if(!headerCanChangeColor) {
-      //   if (
-      //     headerScrollOffset >= introSectionTop &&
-      //     headerScrollOffset <= introSectionBottom
-      //   ) {
-      //     setIsDark(false);
-      //   }
-      //   if (
-      //     bottomNavScrollOffset >= introSectionTop &&
-      //     bottomNavScrollOffset <= introSectionBottom
-      //   ) {
-      //     setBottomIsDark(false);
-      //   }
-      // }
 
       // Khi ở mobile, tìm đến section insight và thay đổi thành dark
       const insightSection = document.querySelector(".insights-section");
@@ -148,11 +142,13 @@ const Header = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsOnMobile(window.innerWidth < 1280);
-      const header = document.querySelector(".main-header-g");
-      setIsDark(false);
-      showHeaderBtn();
-      header.classList.remove("hide");
+      if (headerCanChangeColor) {
+        setIsOnMobile(window.innerWidth < 1280);
+        const header = document.querySelector(".main-header-g");
+        // setIsDark(false);
+        showHeaderBtn();
+        header.classList.remove("hide");
+      }
     };
 
     window.addEventListener("resize", handleResize);
@@ -161,7 +157,7 @@ const Header = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [headerCanChangeColor]);
 
   return (
     <div>

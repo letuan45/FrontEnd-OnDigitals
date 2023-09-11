@@ -59,8 +59,12 @@ const BlogsHeader = () => {
         </p>
       </div>
       <div className={classes["blog-header-right-item"]}>
-        <SelectOption options={DUMMY_CATEGORIES} label="category" />
-        <div style={{marginLeft: "20px"}}>
+        <div className={classes["blog-header-right-item__option"]}>
+          <SelectOption options={DUMMY_CATEGORIES} label="category" />
+        </div>
+        <div
+          className={classes["blog-header-right-item__option"]}
+        >
           <SelectOption options={DUMMY_SORT_BY} label="sort by" />
         </div>
       </div>

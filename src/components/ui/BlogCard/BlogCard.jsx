@@ -6,7 +6,7 @@ import { Maven_Pro } from "next/font/google";
 import { format, parseISO } from "date-fns";
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 
-const BlogCard = ({ isForSlider, data }) => {
+const BlogCard = ({ isForSlider, data, isForBlogPage }) => {
   const post = data;
   const isoDate = post.date;
   const parsedDate = parseISO(isoDate);
@@ -15,7 +15,7 @@ const BlogCard = ({ isForSlider, data }) => {
     isForSlider
       ? `${classes["blog-card-slider"]} card-news-insights-container`
       : ""
-  }`;
+  } ${isForBlogPage ? classes["blog-card-blog-page"] : ""}`;
 
   return (
     <>
@@ -23,9 +23,11 @@ const BlogCard = ({ isForSlider, data }) => {
         <div className={containerClasses}>
           <div className={classes["blog-card__image"]}>
             <Image
-              src={post.featuredImage.node.sourceUrl}
+              src={post.featuredImage?.node.sourceUrl}
               fill
               alt={post.title}
+              placeholder={post.featuredImage?.node.sourceUrl ? "blur" : "empty"}
+              blurDataURL={post.featuredImage?.node.sourceUrl}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
@@ -39,18 +41,14 @@ const BlogCard = ({ isForSlider, data }) => {
               </span>
               {isForSlider && (
                 <div className={classes["blog-card__dateview-wrapper"]}>
-                  <p
-                    style={{ fontFamily: MavenPro.style.fontFamily }}
-                  >
+                  <p style={{ fontFamily: MavenPro.style.fontFamily }}>
                     <i
                       className="fa-regular fa-calendar"
                       style={{ marginRight: "5px" }}
                     ></i>
                     {formattedDate}
                   </p>
-                  <p
-                    style={{ fontFamily: MavenPro.style.fontFamily }}
-                  >
+                  <p style={{ fontFamily: MavenPro.style.fontFamily }}>
                     <i
                       className="fa-regular fa-eye"
                       style={{ marginRight: "5px" }}
@@ -97,6 +95,16 @@ const BlogCard = ({ isForSlider, data }) => {
                   ></i>
                   500
                 </p>
+              </div>
+            )}
+            {isForBlogPage && (
+              <div
+                className={classes["blog-card__button"]}
+                style={{ marginTop: "10px" }}
+              >
+                <span>
+                  Read Full<i className="fa-solid fa-arrow-right"></i>
+                </span>
               </div>
             )}
           </div>
