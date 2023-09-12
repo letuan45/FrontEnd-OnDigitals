@@ -120,25 +120,25 @@ a {
   }
 }
 .container-no-pd {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  box-sizing: border-box;
+  width: 100% !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  box-sizing: border-box !important;
 
   @media (min-width: 640px) {
-    max-width: 640px;
+    max-width: 640px !important;
   }
 
   @media (min-width: 768px) {
-    max-width: 768px;
+    max-width: 768px !important;
   }
 
   @media (min-width: 1024px) {
-    max-width: 1024px;
+    max-width: 1024px !important;
   }
 
   @media (min-width: 1280px) {
-    max-width: 1280px;
+    max-width: 1280px !important;
   }
 }
 /* end container */
