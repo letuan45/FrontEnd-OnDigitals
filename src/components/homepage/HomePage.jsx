@@ -60,7 +60,11 @@ const HomePage = (allPosts) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsShowSectionSlide(!(window.innerWidth < 1280));
+      const isOnMobile = window.innerWidth < 1280;
+      setIsShowSectionSlide(!isOnMobile);
+      if(isOnMobile) {
+        setHeaderCanChangeColor();
+      }
     };
 
     window.addEventListener("resize", handleResize);
@@ -129,13 +133,14 @@ const HomePage = (allPosts) => {
     if (swiper.isEnd) {
       setHeaderCanChangeColor();
       setToDark();
-      console.log("set")
     }
     if (swiper.activeIndex === 3) {
       setToLight();
     }
     if (swiper.activeIndex === 0) {
+      setHeaderCanChangeColor();
       setToLight();
+      console.log("setToLight")
       if (isShowSectionSlide) {
         showHeaderBtn();
       }
