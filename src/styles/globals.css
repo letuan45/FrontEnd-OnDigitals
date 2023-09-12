@@ -68,7 +68,7 @@ a {
   margin-right: auto;
   margin-left: auto;
   box-sizing: border-box;
-
+/* 
   @media (min-width: 640px) {
     max-width: 640px;
   }
@@ -87,15 +87,15 @@ a {
 
   @media (min-width: 1280px) {
     max-width: 1280px;
-  }
+  } */
 }
 .container--big {
-  width: 100% !important;
-  margin-right: auto !important;
-  margin-left: auto !important;
-  box-sizing: border-box !important;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
 
-  @media (min-width: 280px) {
+  /* @media (min-width: 280px) {
     width: 100% !important;
   }
 
@@ -117,15 +117,15 @@ a {
 
   @media (min-width: 1280px) {
     max-width: 1440px !important;
-  }
+  } */
 }
 .container-no-pd {
-  width: 100% !important;
-  margin-right: auto !important;
-  margin-left: auto !important;
-  box-sizing: border-box !important;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
 
-  @media (min-width: 640px) {
+  /* @media (min-width: 640px) {
     max-width: 640px !important;
   }
 
@@ -139,7 +139,7 @@ a {
 
   @media (min-width: 1280px) {
     max-width: 1280px !important;
-  }
+  } */
 }
 /* end container */
 
@@ -412,3 +412,67 @@ a {
 .custom-pagination ol li button {
   border: solid 1px #4c4552;
 }
+
+/* START MEDIA QUERIES */
+@media (max-width: 1280px) {
+  .container,
+  .container--big {
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+  .container--big {
+    max-width: 1440px !important;
+  }
+  .container-no-pd {
+    padding: 0;
+    max-width: 1280px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+  .container--big {
+    max-width: 1280px !important;
+  }
+  .container-no-pd {
+    max-width: 1024px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+  .container--big {
+    max-width: 1024px !important;
+  }
+  .container-no-pd {
+    max-width: 768px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+  .container--big {
+    max-width: 768px !important;
+  }
+  .container-no-pd {
+    max-width: 640px;
+  }
+}
+
+@media (max-width: 280px) {
+  .container--big {
+    width: 100% !important;
+  }
+}
+/* END MEDIA QUERIES */

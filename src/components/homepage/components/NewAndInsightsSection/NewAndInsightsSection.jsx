@@ -97,7 +97,7 @@ export default function NewAndInsightsSection({ data, NavButton }) {
             </div>
           </div>
         </div>
-        {/* {NavButton && NavButton} */}
+        {NavButton && NavButton}
       </section>
     </>
   );

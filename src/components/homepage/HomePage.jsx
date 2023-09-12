@@ -29,12 +29,14 @@ const HomePage = (allPosts) => {
   const setHeaderCanChangeColor = useBoundStore(
     (state) => state.setHeaderCanChangeColor
   );
+  const setBottomNavIsShown = useBoundStore((state) => state.setBottomNavIsShown);
   const contactFormRef = useRef(null);
 
   const scrollToContactForm = () => {
     if (contactFormRef.current) {
       contactFormRef.current.scrollIntoView({ behavior: "smooth" });
     }
+    setHeaderCanChangeColor();
     setToLight();
   };
 
@@ -42,6 +44,7 @@ const HomePage = (allPosts) => {
     if (swiperRef.current) {
       swiperRef.current.scrollIntoView({ behavior: "smooth" });
     }
+    setHeaderCanChangeColor();
     setToDark();
   };
 
@@ -137,10 +140,14 @@ const HomePage = (allPosts) => {
     if (swiper.activeIndex === 3) {
       setToLight();
     }
+    if(swiper.isEnd) {
+      setBottomNavIsShown(false);
+    } else {
+      setBottomNavIsShown(true);
+    }
     if (swiper.activeIndex === 0) {
       setHeaderCanChangeColor();
       setToLight();
-      console.log("setToLight")
       if (isShowSectionSlide) {
         showHeaderBtn();
       }
