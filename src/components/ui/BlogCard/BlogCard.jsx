@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Maven_Pro } from "next/font/google";
 import { format, parseISO } from "date-fns";
+import Tag from "../Tag/Tag";
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 
 const BlogCard = ({ isForSlider, data, isForBlogPage }) => {
@@ -17,6 +18,9 @@ const BlogCard = ({ isForSlider, data, isForBlogPage }) => {
       : ""
   } ${isForBlogPage ? classes["blog-card-blog-page"] : ""}`;
 
+  //Random từ 1 đến 4
+  const randomType = Math.floor(Math.random() * 4) + 1;
+
   return (
     <>
       <Link href={post.link}>
@@ -26,19 +30,22 @@ const BlogCard = ({ isForSlider, data, isForBlogPage }) => {
               src={post.featuredImage?.node.sourceUrl}
               fill
               alt={post.title}
-              placeholder={post.featuredImage?.node.sourceUrl ? "blur" : "empty"}
+              placeholder={
+                post.featuredImage?.node.sourceUrl ? "blur" : "empty"
+              }
               blurDataURL={post.featuredImage?.node.sourceUrl}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
           <div className={classes["blog-card__content"]}>
             <div className={classes["blog-card__content__dayView"]}>
-              <span
+              {/* <span
                 style={{ fontFamily: MavenPro.style.fontFamily }}
                 className={classes["blog-card__content--tag"]}
               >
                 SEO Tips
-              </span>
+              </span> */}
+              <Tag type={4} name="Web Development" />
               {isForSlider && (
                 <div className={classes["blog-card__dateview-wrapper"]}>
                   <p style={{ fontFamily: MavenPro.style.fontFamily }}>
