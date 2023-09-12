@@ -1,4 +1,4 @@
-import HomePage from "@/components/homepage/HomePage";
+import HomePage from "@/components/homePage/HomePage";
 import {getDataForNewAndInsightsSection} from "./api/graphql"
 export default function Home({allPosts}) {
   return (

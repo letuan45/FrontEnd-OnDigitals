@@ -43,12 +43,12 @@ const Header = () => {
   };
 
   useEffect(() => {
-    console.log(
-      "can change",
-      headerCanChangeColor,
-      "is dark",
-      headerIsDark
-    );
+    // console.log(
+    //   "can change",
+    //   headerCanChangeColor,
+    //   "is dark",
+    //   headerIsDark
+    // );
 
     if (headerCanChangeColor) {
       setIsDark(headerIsDark);
