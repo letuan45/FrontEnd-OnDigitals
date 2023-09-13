@@ -6,6 +6,7 @@ import Link from "next/link";
 import ButtonNoBorder from "../ui/Buttons/ButtonNoBorder/ButtonNoBorder";
 import TopRightArrow from "../ui/Icons/TopRightArrow";
 import ReadMoreSlider from "./components/ReadMoreSlider/ReadMoreSlider";
+import PostDetail from "./components/postdetail/PostDetail";
 
 const DUMMY_BREADCRUMB_DATA = [
   {
@@ -30,7 +31,7 @@ const DUMMY_BREADCRUMB_DATA = [
   },
 ];
 
-const BlogDetail = ({ relatedPosts }) => {
+const BlogDetail = ({ relatedPosts, postDetail }) => {
   const headerIsDark = useBoundStore((state) => state.isDark);
   const setToDark = useBoundStore((state) => state.setToDark);
   const setHeaderCanNotChangeColor = useBoundStore(
@@ -55,7 +56,9 @@ const BlogDetail = ({ relatedPosts }) => {
         <section className={classes["blog-detail-content"]}>
           <div className={classes["blog-detail-content__toc"]}></div>
           <div className={classes["blog-detail-content__spacer"]}></div>
-          <div className={classes["blog-detail-content__main"]}></div>
+          <div className={classes["blog-detail-content__main"]}>
+            <PostDetail data={postDetail} />
+          </div>
         </section>
         <section className={classes["blog-detail-read-more"]}>
           <div className={classes["blog-detail-read-more__heading"]}>
