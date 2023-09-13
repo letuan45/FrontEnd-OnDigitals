@@ -3,15 +3,13 @@ import classes from "./BlogCard.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { Maven_Pro } from "next/font/google";
-import { format, parseISO } from "date-fns";
 import Tag from "../Tag/Tag";
+import DateAndViews from "../DateAndViews/DateAndViews";
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 
 const BlogCard = ({ isForSlider, data, isForBlogPage }) => {
   const post = data;
   const isoDate = post.date;
-  const parsedDate = parseISO(isoDate);
-  const formattedDate = format(parsedDate, "dd/MM/yyyy");
   const containerClasses = `${classes["blog-card"]} ${
     isForSlider
       ? `${classes["blog-card-slider"]} card-news-insights-container`
@@ -46,24 +44,7 @@ const BlogCard = ({ isForSlider, data, isForBlogPage }) => {
                 SEO Tips
               </span> */}
               <Tag type={4} name="Web Development" />
-              {isForSlider && (
-                <div className={classes["blog-card__dateview-wrapper"]}>
-                  <p style={{ fontFamily: MavenPro.style.fontFamily }}>
-                    <i
-                      className="fa-regular fa-calendar"
-                      style={{ marginRight: "5px" }}
-                    ></i>
-                    {formattedDate}
-                  </p>
-                  <p style={{ fontFamily: MavenPro.style.fontFamily }}>
-                    <i
-                      className="fa-regular fa-eye"
-                      style={{ marginRight: "5px" }}
-                    ></i>
-                    500
-                  </p>
-                </div>
-              )}
+              {isForSlider && <DateAndViews createDate={isoDate} views={500} />}
             </div>
             <p className={classes["blog-card__content--title-post"]}>
               {post.title}
@@ -80,30 +61,7 @@ const BlogCard = ({ isForSlider, data, isForBlogPage }) => {
                 </span>
               </div>
             )}
-            {!isForSlider && (
-              <div className={classes["blog-card__dateview-wrapper"]}>
-                <p
-                  style={{ fontFamily: MavenPro.style.fontFamily }}
-                  className={classes["blog-card__content__dayView--date"]}
-                >
-                  <i
-                    className="fa-regular fa-calendar"
-                    style={{ marginRight: "5px" }}
-                  ></i>
-                  {formattedDate}
-                </p>
-                <p
-                  style={{ fontFamily: MavenPro.style.fontFamily }}
-                  className={classes["blog-card__content__dayView--views"]}
-                >
-                  <i
-                    className="fa-regular fa-eye"
-                    style={{ marginRight: "5px" }}
-                  ></i>
-                  500
-                </p>
-              </div>
-            )}
+            {!isForSlider && <DateAndViews createDate={isoDate} views={500} />}
             {isForBlogPage && (
               <div
                 className={classes["blog-card__button"]}

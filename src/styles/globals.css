@@ -20,6 +20,7 @@ dt {
 }
 
 * {
+  /* color: #131114; */
   box-sizing: border-box;
 }
 
@@ -352,50 +353,6 @@ a {
 .section-swiper .swiper-slide-next .appear-from-down-slow-more {
   animation: backOutDowAnimation 1.5s;
 }
-@keyframes backInDownAnimation {
-  0% {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes backOutUpAnimation {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-}
-@keyframes backOutDowAnimation {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-}
-@keyframes backInUpAnimation {
-  0% {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* hiệu ứng text khi chuyển slide */
 
 /* Pagination */
 .custom-pagination button {
@@ -476,3 +433,73 @@ a {
   }
 }
 /* END MEDIA QUERIES */
+
+/* BEGIN ANIMATIONS */
+@keyframes backInDownAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes backOutUpAnimation {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+@keyframes backOutDowAnimation {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+@keyframes backInUpAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* END ANIMATIONS */
+
+/* START READMORE IN BLOG DETAIL */
+.read-more-swiper .swiper-slide {
+  padding: 13px;
+}
+
+.read-more-swiper {
+  margin: 0 -13px;
+  padding-bottom: 56px !important;
+}
+
+.read-more-swiper .swiper-pagination-bullet {
+  width: 16px;
+  height: 16px;
+  background-color: #766b7f;
+  
+}
+.read-more-swiper .swiper-pagination-bullet.swiper-pagination-bullet-active{
+  background-color: #3D1766;
+}
+.read-more-swiper .swiper-pagination {
+  top: 96% !important;
+}
+/* END READMORE IN BLOG DETAIL */
