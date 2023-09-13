@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classes from "./ButtonSearch.module.scss";
 import { CancelIcon, SearchIcon } from "../../Icons/ListIcon";
 import { useFormik } from "formik";
-import { SearchPostsByKey } from "@/pages/api/graphql";
+import { GetPostById, SearchPostsByKey } from "@/pages/api/graphql";
 
 export default function ButtonSearch({ onSearch }) {
   const [isSearchIcon, setIsSearchIcon] = useState(true);
@@ -14,11 +14,13 @@ export default function ButtonSearch({ onSearch }) {
   });
   const handleClick = () => {
     setIsSearchIcon((prev) => !prev);
+    formik.setFieldValue("text", "");
   };
   async function handleSubmit(searchValue) {
-    // const searchedPosts = await SearchPostsByKey({ key: values.text });
-    // console.log(searchedPosts);
-    // <BlogList blogsData={searchedPosts}/>
+    const postId = 3848; 
+    const searchedPost = await GetPostById({ postId });
+
+    console.log(searchedPost);
     onSearch(searchValue);
     formik.resetForm();
     handleClick();
@@ -39,7 +41,13 @@ export default function ButtonSearch({ onSearch }) {
           )}
         </div>
         <form onSubmit={formik.handleSubmit}>
-          <div style={{ position: "relative", display: "flex" }}>
+          <div
+            className={`${
+              isSearchIcon
+                ? classes["form-input-hide"]
+                : classes["form-input-show"]
+            }`}
+          >
             <input
               placeholder="Search...."
               id="text"
@@ -50,7 +58,6 @@ export default function ButtonSearch({ onSearch }) {
               required
               autoComplete="off"
               autoFocus
-              className={`${isSearchIcon && classes["form-hide"]}`}
             />
             {!isSearchIcon && formik.values.text && (
               <svg
