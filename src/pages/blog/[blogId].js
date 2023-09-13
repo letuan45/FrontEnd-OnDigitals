@@ -1,4 +1,4 @@
-import BlogDetail from "@/components/blogDetailPage/BlogDetail";
+import BlogDetail from "@/components/blogdetailpage/BlogDetail";
 import { getDataForNewAndInsightsSection } from "../api/graphql";
 
 const BlogDetailPage = ({allPosts}) => {
