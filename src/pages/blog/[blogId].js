@@ -1,9 +1,9 @@
-import BlogDetail from "@/components/blogDetailPage/BlogDetail";
+import { useRouter } from "next/router";
+import BlogDetail from "@/components/blogdetailpage/BlogDetail";
 import {
   GetPostDetailById,
   getDataForNewAndInsightsSection,
 } from "../api/graphql";
-import { useRouter } from "next/router";
 
 const BlogDetailPage = ({ allPosts, dataPostDetail }) => {
   const router = useRouter();

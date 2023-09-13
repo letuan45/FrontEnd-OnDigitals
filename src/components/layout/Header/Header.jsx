@@ -176,7 +176,9 @@ const Header = () => {
       >
         <div className="container--big">
           <div className={classes["header-wrapper"]}>
-            <Logo isVisible={!menuIsOpen} isDark={isDark} />
+            <Link href="/">
+              <Logo isVisible={!menuIsOpen} isDark={isDark} />
+            </Link>
             <div
               className={`${classes["header-wrapper-fn"]} ${
                 isDark ? classes["dark-header"] : ""
