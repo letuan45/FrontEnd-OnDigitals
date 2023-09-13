@@ -1,4 +1,4 @@
-import BlogPage from "@/components/blogPage/BlogPage";
+import BlogPage from "@/components/blogpage/BlogPage";
 import { getDataForNewAndInsightsSection } from "../api/graphql";
 
 export default function Blog({ allPosts }) {
