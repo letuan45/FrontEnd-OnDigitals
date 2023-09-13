@@ -40,7 +40,6 @@
     padding: calc(6% + 40px) 0;
     text-align: right;
     .menu-list {
-      color: white;
       font-size: 48px;
       font-weight: 700;
       line-height: 52px;
@@ -58,6 +57,9 @@
           display: flex;
           align-items: center;
           justify-content: flex-end;
+          div {
+            color: white;
+          }
         }
         &__circle {
           width: 30px;

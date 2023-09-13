@@ -1,14 +1,18 @@
-import BlogPage from "@/components/blogPage/BlogPage";
+import BlogDetail from "@/components/blogDetailPage/BlogDetail";
 import { getDataForNewAndInsightsSection } from "../api/graphql";
 
-export default function Blog({ allPosts }) {
+const BlogDetailPage = ({allPosts}) => {
+  //   return <BlogDetail />;
   return (
     <>
-      <BlogPage blogsData={allPosts} />
+      <BlogDetail relatedPosts={allPosts} />
     </>
   );
-}
+};
 export const getServerSideProps = async () => {
   const allPosts = await getDataForNewAndInsightsSection();
   return { props: { allPosts } };
 };
+
+
+export default BlogDetailPage;

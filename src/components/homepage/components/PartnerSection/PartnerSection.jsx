@@ -87,7 +87,7 @@ export default function PartnerSection({ NavButton }) {
             >
               <div className={`${divImage} pulse-grow`}>
                 <Image
-                  src="/assets/images/sectionHomepage/areus-atelier.png"
+                  src="/assets/images/SectionHomepage/areus-atelier.png"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   alt="Logo Atelier "
@@ -95,7 +95,7 @@ export default function PartnerSection({ NavButton }) {
               </div>
               <div className={`${divImage} pulse-grow`}>
                 <Image
-                  src="/assets/images/sectionHomepage/renault.png"
+                  src="/assets/images/SectionHomepage/renault.png"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   alt="Logo Renault "
@@ -103,7 +103,7 @@ export default function PartnerSection({ NavButton }) {
               </div>
               <div className={`${divImage} pulse-grow`}>
                 <Image
-                  src="/assets/images/sectionHomepage/tpcom.png"
+                  src="/assets/images/SectionHomepage/tpcom.png"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   alt="Logo TPcoms"
@@ -111,7 +111,7 @@ export default function PartnerSection({ NavButton }) {
               </div>
               <div className={`${divImage} pulse-grow`}>
                 <Image
-                  src="/assets/images/sectionHomepage/ducati.png"
+                  src="/assets/images/SectionHomepage/ducati.png"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   alt="Logo Ducati"
@@ -119,7 +119,7 @@ export default function PartnerSection({ NavButton }) {
               </div>
               <div className={`${divImage} pulse-grow`}>
                 <Image
-                  src="/assets/images/sectionHomepage/hantec.png"
+                  src="/assets/images/SectionHomepage/hantec.png"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   alt="Logo Hantec"
@@ -127,7 +127,7 @@ export default function PartnerSection({ NavButton }) {
               </div>
               <div className={`${divImage} pulse-grow`}>
                 <Image
-                  src="/assets/images/sectionHomepage/livingcare.png"
+                  src="/assets/images/SectionHomepage/livingcare.png"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   alt="Logo LivingCare"
@@ -135,7 +135,7 @@ export default function PartnerSection({ NavButton }) {
               </div>
               <div className={`${divImage} pulse-grow`}>
                 <Image
-                  src="/assets/images/sectionHomepage/kundal.png"
+                  src="/assets/images/SectionHomepage/kundal.png"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   alt="Logo kundal"
@@ -143,7 +143,7 @@ export default function PartnerSection({ NavButton }) {
               </div>
               <div className={`${divImage} pulse-grow`}>
                 <Image
-                  src="/assets/images/sectionHomepage/passion-wine.png"
+                  src="/assets/images/SectionHomepage/passion-wine.png"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   alt="Logo passion-wine"

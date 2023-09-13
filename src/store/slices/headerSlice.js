@@ -3,6 +3,7 @@ export const createHeaderSlice = (set) => ({
   headerBtnIsShown: true,
   expanseMenuIsOpen: false,
   headerCanChangeColor: true,
+  bottomNavIsShown: true,
   setToDark: () => set({ isDark: true }),
   setToLight: () => set({ isDark: false }),
   hideHeaderBtn: () => set({ headerBtnIsShown: false }),
@@ -11,4 +12,6 @@ export const createHeaderSlice = (set) => ({
   setHeaderCanNotChangeColor: () => set({ headerCanChangeColor: false }),
   setExpanseMenuIsOpen: (expanseState = false) =>
     set({ expanseMenuIsOpen: expanseState }),
+  setBottomNavIsShown: (statePayload) =>
+    set({ bottomNavIsShown: statePayload }),
 });

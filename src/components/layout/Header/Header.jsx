@@ -17,6 +17,9 @@ const Header = () => {
   const menuButtonClasses = `${classes["header-menu-btn"]} ${
     menuIsOpen ? classes["active"] : ""
   }`;
+  const bottomNavIsShownState = useBoundStore(
+    (state) => state.bottomNavIsShown
+  );
   const [bottomNavIsShown, setBottomNavIsShown] = useState(true);
   const headerIsDark = useBoundStore((state) => state.isDark);
   const headerBtnIsShown = useBoundStore((state) => state.headerBtnIsShown);
@@ -43,12 +46,12 @@ const Header = () => {
   };
 
   useEffect(() => {
-    console.log(
-      "can change",
-      headerCanChangeColor,
-      "is dark",
-      headerIsDark
-    );
+    // console.log(
+    //   "can change",
+    //   headerCanChangeColor,
+    //   "is dark",
+    //   headerIsDark
+    // );
 
     if (headerCanChangeColor) {
       setIsDark(headerIsDark);
@@ -237,7 +240,12 @@ const Header = () => {
             </div>
           </div>
           <BottomNavigator
-            isVisible={!menuIsOpen && bottomNavIsShown && headerBtnIsShown}
+            isVisible={
+              !menuIsOpen &&
+              bottomNavIsShown &&
+              headerBtnIsShown &&
+              bottomNavIsShownState
+            }
             isDark={bottomIsDark}
           />
         </div>
