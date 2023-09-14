@@ -2,14 +2,13 @@ import { useBoundStore } from "@/store/useBoundStore";
 import classes from "./BlogDetail.module.scss";
 import { useEffect } from "react";
 import Breadcrumb from "../ui/Breadcrumb/Breadcrumb";
-import Link from "next/link";
 import ButtonNoBorder from "../ui/Buttons/ButtonNoBorder/ButtonNoBorder";
 import TopRightArrow from "../ui/Icons/TopRightArrow";
 import ReadMoreSlider from "./components/ReadMoreSlider/ReadMoreSlider";
-import PostDetail from "./components/postdetail/PostDetail";
 import { Maven_Pro } from "next/font/google";
 import Button from "../ui/Buttons/Button/Button";
 import { ArrowRight } from "../ui/Icons/ListIcon";
+import PostDetail from "./components/postdetail/PostDetail";
 
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 
