@@ -8,7 +8,7 @@ import ReadMoreSlider from "./components/ReadMoreSlider/ReadMoreSlider";
 import { Maven_Pro } from "next/font/google";
 import Button from "../ui/Buttons/Button/Button";
 import { ArrowRight } from "../ui/Icons/ListIcon";
-import PostDetail from "./components/postdetail/PostDetail";
+import PostDetail from "./components/PostDetail/PostDetail";
 
 const MavenPro = Maven_Pro({ subsets: ["latin", "vietnamese"] });
 
